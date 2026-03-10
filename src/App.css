@@ -1,0 +1,4 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* This is the same as scroll-pt-20 */
+}

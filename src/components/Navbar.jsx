@@ -32,7 +32,7 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`fixed lg:px-28 px-5 top-0 left-0 w-full z-50 bg-white p-5 transition-shadow duration-300 ${hasShadow ? "shadow-md" : "shadow-none"
+      className={`fixed lg:px-28 px-5 top-0 left-0 w-full z-50 bg-white p-5 relative transition-shadow duration-300 ${hasShadow ? "shadow-md" : "shadow-none"
         }`}
     >
       <div className="container mx-auto flex justify-between items-center">
@@ -41,7 +41,7 @@ export default function Navbar() {
           whileTap={{ scale: 0.9 }}
           onClick={() => scrollToSection("home")}
           className="h-9 cursor-pointer"
-          src="/assets/mbfavicon.png"
+          src="/assets/logo.svg"
           alt="Logo"
         />
 
@@ -75,7 +75,7 @@ export default function Navbar() {
         </motion.a>
 
         <motion.button
-          className="lg:hidden text-2xl"
+          className="lg:hidden text-3xl p-1"
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.2 }}
         >
@@ -99,7 +99,7 @@ export default function Navbar() {
             >
               <HiX />
             </button>
-            <ul className="flex flex-col items-start ml-16 mt-28 h-full gap-y-6 font-semibold">
+            <ul className="flex flex-col items-start px-8 mt-28 h-full gap-y-8 font-semibold text-lg">
               {["about", "skills", "projects", "contact"].map((section) => (
                 <motion.li
                   key={section}

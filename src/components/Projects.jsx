@@ -30,13 +30,13 @@ export default function Projects() {
         {projects.map((project, index) => (
           <motion.div
             key={project.id}
-            className={`flex justify-between items-center flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
+            className={`flex items-center flex-col gap-6 ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 80, damping: 10, delay: index * 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="lg:w-[500px] w-full rounded-2xl overflow-hidden border border-zinc-800">
+            <div className="lg:w-[500px] w-full max-w-md rounded-2xl overflow-hidden border border-zinc-800">
               <img
                 className="w-full h-full hover:scale-105 transition-all duration-500 cursor-pointer object-cover"
                 src={project.image}
@@ -48,8 +48,7 @@ export default function Projects() {
               <h2 className="font-extrabold text-white/20 mt-5 lg:mt-0 text-4xl lg:text-6xl tracking-tighter">
                 {String(project.id).padStart(2, "0")}
               </h2>
-              <p className="font-bold text-white text-xl lg:text-3xl">{project.title}</p>
-
+              <p className="font-bold text-white text-xl sm:text-2xl lg:text-3xl">{project.title}</p>
               <p className="font-light text-sm/6 lg:text-base text-[#71717A]">
                 {project.description}
               </p>

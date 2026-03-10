@@ -15,17 +15,16 @@ export default function Home() {
 
   return (
     <div className="min-h-[80vh] flex items-center mt-10 lg:mt-0" id="home">
-
-      <div className="flex justify-between py-10 items-center px-5 lg:px-28 lg:flex-row flex-col-reverse w-full gap-10">
+      <div className="flex justify-between py-10 sm:py-10 items-center px-5 lg:px-28 lg:flex-row flex-col-reverse w-full gap-8 lg:gap-12">
         <motion.div
-          className="lg:w-[50%] flex flex-col justify-center"
+          className="lg:w-[55%] flex flex-col justify-center"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
         >
 
           <motion.div
-            className="text-2xl lg:text-5xl flex flex-col gap-2 lg:gap-5 text-nowrap"
+            className="text-2xl sm:text-3xl lg:text-5xl flex flex-col gap-2 lg:gap-5 leading-tight"
             initial="hidden"
             animate="visible"
             variants={{
@@ -41,7 +40,7 @@ export default function Home() {
               Hello, I'm {" "}
               {/* <span className="font-extrabold">Manoj</span>{" "} */}
               <span
-                className="text-white font-extrabold"
+                className="text-white font-extrabold text-2xl md:text-4xl lg:text-5xl whitespace-nowrap block sm:inline"
                 style={{ WebkitTextStroke: "1px black" }}
               >
                 Manoj Bhandarkar
@@ -89,7 +88,7 @@ export default function Home() {
                 href={social.href} // Dynamic link here
                 target={social.href.startsWith('mailto:') ? '_self' : '_blank'}   // Opens in a new tab
                 rel="noreferrer"   // Security best practice
-                className="bg-white p-2 lg:p-3 rounded border-2 border-black"
+                className="bg-white p-2 sm:p-2.5 lg:p-3 rounded border-2 border-black"
                 whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -100,18 +99,19 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          className="lg:w-[40%] w-[70%] max-w-[450px]" // Reduced width and added a hard max-width
+          className="lg:w-[40%] w-[85%] sm:w-[70%] max-w-[420px]"
           initial={{ opacity: 1 }}
-          animate={{ opacity: 1, y: [0, -10, 0] }}
+          animate={{ opacity: 1, y: [0, -20, 0] }}
           transition={{
             duration: 4,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         >
-          <img className="h-full w-full" src="/assets/manoj3.png" alt="Hero Vector" />
+          <img className="h-full w-full" src="/assets/hero-vector.png" alt="Hero Vector" />
         </motion.div>
       </div>
     </div>
+
   );
 }

@@ -9,6 +9,12 @@ import { FaPhone } from "react-icons/fa6";
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const socialLinks = [
+    { Icon: BsGithub, href: "https://github.com/Manoj-Bhandarkar" },
+    { Icon: IoLogoLinkedin, href: "https://www.linkedin.com/in/manoj-bhandarkar/" },
+    { Icon: BiLogoGmail, href: "mailto:developer.manojbhandarkar@gmail.com" },
+    { Icon: IoLogoTwitter, href: "https://twitter.com" },
+  ];
 
   return (
     <motion.div
@@ -16,7 +22,7 @@ export default function Contact() {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
-      className='lg:my-16 lg:px-28 my-8 px-5'
+      className='my-10 px-4 sm:px-6 lg:px-28 lg:my-16'
       id='contact'
     >
       <motion.h2
@@ -33,12 +39,12 @@ export default function Contact() {
           initial={{ x: -50, opacity: 0 }}
           animate={isInView ? { x: 0, opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8 }}
-          className='lg:w-[40%]'
+          className='w-full lg:w-[40%]'
         >
           <form className='w-full space-y-3 lg:space-y-5'>
-            <input className='border-2 px-5 py-3 border-black rounded placeholder:text-[#71717A] text-sm w-full' type="text" placeholder='Your name' required />
-            <input className='border-2 px-5 py-3 border-black rounded placeholder:text-[#71717A] text-sm w-full' type="email" placeholder='Email' required />
-            <input className='border-2 px-5 py-3 border-black rounded placeholder:text-[#71717A] text-sm w-full' type="text" placeholder='Your website (If exists)' />
+            <input className='border-2 px-4 py-3 border-black rounded placeholder:text-[#71717A] sm:text-base w-full' type="text" placeholder='Your name' required />
+            <input className='border-2 px-4 py-3 border-black rounded placeholder:text-[#71717A] sm:text-base w-full' type="email" placeholder='Email' required />
+            <input className='border-2 px-4 py-3 border-black rounded placeholder:text-[#71717A] sm:text-base w-full' type="text" placeholder='Your website (If exists)' />
             <textarea className='resize-none border-2 px-5 py-3 h-32 border-black placeholder:text-[#71717A]  rounded text-sm w-full' placeholder='How can I help?*'></textarea>
 
             <motion.div
@@ -50,24 +56,30 @@ export default function Contact() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 type='submit'
-                className='bg-black justify-center w-fit lg:w-auto lg:flex-1 hover:shadow-lg text-white px-3 py-2 rounded flex items-center gap-x-3 font-medium'
+                className='bg-black justify-center w-full lg:w-auto lg:flex-1 hover:shadow-lg text-white px-3 py-2 rounded flex items-center gap-x-3 font-medium'
               >
                 Get In Touch
               </motion.button>
-
-              <div className='flex items-center gap-x-2 lg:gap-x-5'>
-                {[BsGithub, IoLogoLinkedin, BiLogoGmail, IoLogoTwitter].map((Icon, index) => (
+              <motion.div
+                className="flex items-center gap-x-2 lg:gap-x-5 "
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 1 }}
+              >
+                {socialLinks.map((social, index) => (
                   <motion.a
                     key={index}
-                    href="#"
-                    className="bg-white p-2 lg:p-3 rounded border-2 border-black"
+                    href={social.href}
+                    target={social.href.startsWith('mailto:') ? '_self' : '_blank'}
+                    rel="noreferrer"
+                    className="bg-white p-2 sm:p-3 rounded border-2 border-black text-black"
                     whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <Icon className="w-4 h-4 lg:w-5 lg:h-5" />
+                    <social.Icon className="w-4 h-4 lg:w-5 lg:h-5" />
                   </motion.a>
                 ))}
-              </div>
+              </motion.div>
             </motion.div>
           </form>
         </motion.div>
@@ -83,7 +95,9 @@ export default function Contact() {
             <h2>Something special</h2>
           </div>
 
-          <p className='text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-6'>I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences.</p>
+          <p className='text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-6'>
+            I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences.
+          </p>
 
           <div className='font-semibold text-sm lg:text-xl flex flex-col mt-6 gap-2 lg:gap-4'>
             <motion.a
@@ -100,7 +114,7 @@ export default function Contact() {
             <motion.a
               whileHover={{ x: 5 }}
               className='flex items-center gap-2 group'
-              href="tele:1234567890"
+              href="tele:+918788796066"
             >
               <span className='border-2 transition-all border-transparent group-hover:border-black rounded-full p-[5px]'>
                 <FaPhone className="w-3 h-3 lg:w-4 lg:h-4" />

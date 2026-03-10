@@ -1,17 +1,14 @@
-
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaPython, FaDocker, FaGitAlt } from "react-icons/fa";
+import { FaPython, FaDocker, FaGitAlt, FaHtml5, FaCss3, FaReact, FaAws, FaBootstrap } from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
 import {
   SiFastapi, SiDjango, SiSqlalchemy, SiSwagger, SiPostman,
-  SiCelery, SiPytest, SiGithubactions, SiGunicorn, SiNginx,
-  SiLetsencrypt, SiJsonwebtokens, SiRedis, SiMysql,
-  SiAkamai,
-
+  SiGithubactions, SiGunicorn, SiNginx,
+  SiJsonwebtokens, SiMysql, SiTailwindcss,
+  SiAkamai, SiMongodb, SiPydantic, SiAuth0,
 } from "react-icons/si";
-import { MdSecurity } from "react-icons/md";
+import { BsJavascript } from "react-icons/bs";
 
 
 
@@ -25,37 +22,47 @@ export default function Skills() {
         { id: 2, name: "Django", icon: <SiDjango />, color: "#092E20" },
         { id: 3, name: "DRF", icon: <SiDjango />, color: "#A62C2C" },
         { id: 4, name: "FastAPI", icon: <SiFastapi />, color: "#05998B" },
-        { id: 5, name: "SQLAlchemy", icon: <SiSqlalchemy />, color: "#D71F00" },
-        { id: 6, name: "Celery", icon: <SiCelery />, color: "#37814A" },
-        { id: 7, name: "JWT", icon: <SiJsonwebtokens />, color: "#FB015B" },
+        { id: 5, name: "SQLAlchemy", icon: <SiSqlalchemy />, color: "#f86c07" },
+        { id: 6, name: "Pydantic", icon: <SiPydantic />, color: "#1E90FF" },
+      ]
+    },
+    {
+      title: "Frontend",
+      skills: [
+        { id: 7, name: "HTML", icon: <FaHtml5 />, color: "#FFA500" },
+        { id: 8, name: "CSS3", icon: <FaCss3 />, color: "#1572B6" },
+        { id: 9, name: "JavaScript", icon: <BsJavascript />, color: "#F7DF1E" },
+        { id: 10, name: "React", icon: <FaReact />, color: "#61DAFB" },
+        { id: 11, name: "Tailwind CSS", icon: <SiTailwindcss />, color: "#61DAFB" },
+        { id: 12, name: "Bootstrap", icon: <FaBootstrap />, color: "#61DAFB" },
+
       ]
     },
     {
       title: "Database",
       skills: [
-        { id: 8, name: "PostgreSQL", icon: <BiLogoPostgresql />, color: "#4169E1" },
-        { id: 9, name: "MySQL", icon: <SiMysql />, color: "#4479A1" },
-        { id: 10, name: "Redis", icon: <SiRedis />, color: "#FF4438" }
+        { id: 13, name: "PostgreSQL", icon: <BiLogoPostgresql />, color: "#4169E1" },
+        { id: 14, name: "MySQL", icon: <SiMysql />, color: "#4479A1" },
+        { id: 15, name: "MongoDB", icon: <SiMongodb />, color: "#47A248" },
       ]
     },
     {
       title: "Deployment",
       skills: [
-        { id: 11, name: "Docker", icon: <FaDocker />, color: "#2496ED" },
-        { id: 12, name: "Nginx", icon: <SiNginx />, color: "#009639" },
-        { id: 13, name: "Gunicorn", icon: <SiGunicorn />, color: "#499848" },
-        { id: 14, name: "GitHub Actions", icon: <SiGithubactions />, color: "#2088FF" },
-        { id: 15, name: "Linode", icon: <SiAkamai />, color: "#2088FF" }
-
+        { id: 16, name: "Docker", icon: <FaDocker />, color: "#2496ED" },
+        { id: 17, name: "Nginx", icon: <SiNginx />, color: "#009639" },
+        { id: 18, name: "Gunicorn", icon: <SiGunicorn />, color: "#499848" },
+        { id: 19, name: "GitHub Actions", icon: <SiGithubactions />, color: "#2088FF" },
+        { id: 20, name: "Linode", icon: <SiAkamai />, color: "#2088FF" },
+        { id: 21, name: "AWS", icon: <FaAws />, color: "#FF9900" },
       ]
     },
     {
       title: "Tools",
       skills: [
-        { id: 15, name: "Git", icon: <FaGitAlt />, color: "#F05032" },
-        { id: 16, name: "Postman", icon: <SiPostman />, color: "#FF6C37" },
-        { id: 17, name: "Swagger", icon: <SiSwagger />, color: "#85EA2D" },
-        { id: 18, name: "Pytest", icon: <SiPytest />, color: "#0A9EDC" }
+        { id: 22, name: "Git", icon: <FaGitAlt />, color: "#F05032" },
+        { id: 23, name: "Postman", icon: <SiPostman />, color: "#FF6C37" },
+        { id: 24, name: "Swagger", icon: <SiSwagger />, color: "#85EA2D" },
       ]
     }
   ];
@@ -83,7 +90,7 @@ export default function Skills() {
 
 
   return (
-    <div className="mt-3 lg:mt-16 mx-auto" id="skills">
+    <div className="mt-3 lg:mt-16 mx-auto scroll-mt-20" id="skills">
       <div className="px-5 lg:px-28">
         {/* Section Header */}
         <motion.div
@@ -110,7 +117,7 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               // Added border, padding, and rounded corners to each section
-              className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm"
+              className="border border-gray-200 rounded-xl p-4 sm:p-6 bg-white shadow-sm"
             >
               {/* Compact Category Title */}
               <div className="flex items-center gap-4 mb-6">
@@ -121,7 +128,7 @@ export default function Skills() {
               </div>
 
               {/* Tight Grid Layout */}
-              <div className="flex flex-wrap gap-8 justify-center lg:justify-start">
+              <div className="flex flex-wrap gap-6 sm:gap-8 justify-center lg:justify-start">
                 {group.skills.map((skill) => (
                   <motion.div
                     key={skill.id}
@@ -133,14 +140,13 @@ export default function Skills() {
                       boxShadow: `0px 8px 20px ${skill.color}33`, // Adds a subtle glow using skill color (33 is 20% opacity)
                       borderColor: skill.color, // Border changes to skill color
                     }}
-                    className="bg-white border border-gray-300 rounded-lg p-3 h-24 w-24 lg:h-28 lg:w-28 flex flex-col items-center justify-center gap-2 shadow-sm hover:border-black transition-all cursor-pointer"
+                    className="bg-white border border-gray-300 rounded-lg p-3 h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28 flex flex-col items-center justify-center gap-2 shadow-sm  transition-all cursor-pointer"
                   >
                     <motion.div
-                      className="text-3xl lg:text-4xl transition-colors duration-300"
+                      className="text-2xl sm:text-3xl lg:text-4xl transition-colors duration-300"
                       style={{ color: skill.color }}
-                      whileHover={{ scale: 1.2, backgroundColor: `${skill.color}20`}}
+                      whileHover={{ scale: 1.2 }}
                       transition={{ duration: 0.2 }}
-
                     >
                       {skill.icon}
                     </motion.div>
@@ -160,13 +166,13 @@ export default function Skills() {
       </div>
 
       {/* Experience Section */}
-      <div className="bg-black w-full my-8 py-8 lg:my-16 lg:py-16">
+      <div className="bg-black w-full my-8 py-8 scroll-mt-20" id="experience">
         <motion.h2
           className="text-2xl lg:text-4xl text-center text-white"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.5 }}
         >
           My <span className="font-extrabold">Experience</span>
         </motion.h2>
