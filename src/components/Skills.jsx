@@ -100,7 +100,7 @@ export default function Skills() {
             Technologies I use to build scalable web applications
           </p>
         </motion.div>
-        
+
         {/* Vertical Groups Container */}
         <div className="flex flex-col gap-2">
           {skillGroups.map((group, gIndex) => (
@@ -130,21 +130,27 @@ export default function Skills() {
                     whileHover={{
                       y: -6,
                       scale: 1.05,
-                      boxShadow: "0px 8px 20px rgba(0,0,0,0.12)"
+                      boxShadow: `0px 8px 20px ${skill.color}33`, // Adds a subtle glow using skill color (33 is 20% opacity)
+                      borderColor: skill.color, // Border changes to skill color
                     }}
                     className="bg-white border border-gray-300 rounded-lg p-3 h-24 w-24 lg:h-28 lg:w-28 flex flex-col items-center justify-center gap-2 shadow-sm hover:border-black transition-all cursor-pointer"
                   >
                     <motion.div
-                      className="text-3xl lg:text-4xl"
+                      className="text-3xl lg:text-4xl transition-colors duration-300"
                       style={{ color: skill.color }}
-                      whileHover={{ scale: 1.2 }}
+                      whileHover={{ scale: 1.2, backgroundColor: `${skill.color}20`}}
                       transition={{ duration: 0.2 }}
+
                     >
                       {skill.icon}
                     </motion.div>
-                    <p className="text-[9px] lg:text-[10px] font-bold uppercase text-center text-gray-700">
+                    <motion.p
+                      // Animate text color based on hover state
+                      animate={{ color: activeSkill === skill.name ? skill.color : "#374151" }}
+                      className="text-[9px] lg:text-[10px] font-bold uppercase text-center"
+                    >
                       {skill.name}
-                    </p>
+                    </motion.p>
                   </motion.div>
                 ))}
               </div>
