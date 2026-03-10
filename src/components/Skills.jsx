@@ -1,0 +1,205 @@
+
+
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { FaPython, FaDocker, FaGitAlt } from "react-icons/fa";
+import { BiLogoPostgresql } from "react-icons/bi";
+import {
+  SiFastapi, SiDjango, SiSqlalchemy, SiSwagger, SiPostman,
+  SiCelery, SiPytest, SiGithubactions, SiGunicorn, SiNginx,
+  SiLetsencrypt, SiJsonwebtokens, SiRedis, SiMysql,
+  SiAkamai,
+
+} from "react-icons/si";
+import { MdSecurity } from "react-icons/md";
+
+
+
+export default function Skills() {
+  const [activeSkill, setActiveSkill] = useState(null);
+  const skillGroups = [
+    {
+      title: "Backend",
+      skills: [
+        { id: 1, name: "Python", icon: <FaPython />, color: "#3776AB" },
+        { id: 2, name: "Django", icon: <SiDjango />, color: "#092E20" },
+        { id: 3, name: "DRF", icon: <SiDjango />, color: "#A62C2C" },
+        { id: 4, name: "FastAPI", icon: <SiFastapi />, color: "#05998B" },
+        { id: 5, name: "SQLAlchemy", icon: <SiSqlalchemy />, color: "#D71F00" },
+        { id: 6, name: "Celery", icon: <SiCelery />, color: "#37814A" },
+        { id: 7, name: "JWT", icon: <SiJsonwebtokens />, color: "#FB015B" },
+      ]
+    },
+    {
+      title: "Database",
+      skills: [
+        { id: 8, name: "PostgreSQL", icon: <BiLogoPostgresql />, color: "#4169E1" },
+        { id: 9, name: "MySQL", icon: <SiMysql />, color: "#4479A1" },
+        { id: 10, name: "Redis", icon: <SiRedis />, color: "#FF4438" }
+      ]
+    },
+    {
+      title: "Deployment",
+      skills: [
+        { id: 11, name: "Docker", icon: <FaDocker />, color: "#2496ED" },
+        { id: 12, name: "Nginx", icon: <SiNginx />, color: "#009639" },
+        { id: 13, name: "Gunicorn", icon: <SiGunicorn />, color: "#499848" },
+        { id: 14, name: "GitHub Actions", icon: <SiGithubactions />, color: "#2088FF" },
+        { id: 15, name: "Linode", icon: <SiAkamai />, color: "#2088FF" }
+
+      ]
+    },
+    {
+      title: "Tools",
+      skills: [
+        { id: 15, name: "Git", icon: <FaGitAlt />, color: "#F05032" },
+        { id: 16, name: "Postman", icon: <SiPostman />, color: "#FF6C37" },
+        { id: 17, name: "Swagger", icon: <SiSwagger />, color: "#85EA2D" },
+        { id: 18, name: "Pytest", icon: <SiPytest />, color: "#0A9EDC" }
+      ]
+    }
+  ];
+
+  const [experiences] = useState([
+    {
+      id: 1,
+      company: "Google",
+      role: "Lead Software Engineer",
+      period: "Nov 2019 - Present",
+      description:
+        "Developed innovative solutions for Google's core search algorithms, optimizing search accuracy and user experience. Developed innovative solutions for Google's core search algorithms, optimizing search accuracy and user experience. Developed innovative solutions for Google's core search algorithms, optimizing search accuracy and user experience. Developed innovative solutions for Google's core search algorithms, optimizing search accuracy and user experience.",
+      logo: "/assets/google.svg",
+    },
+    {
+      id: 2,
+      company: "Youtube",
+      role: "Software Engineer",
+      period: "Jan 2017 - Oct 2019",
+      description:
+        "At Youtube, I served as a  Software Engineer, focusing on the design and implementation of backend systems for the social media giant's dynamic platform. Working on projects that involved large-scale data processing and user engagement features, I leveraged my expertise to ensure seamless functionality and scalability.",
+      logo: "/assets/youtube.svg",
+    },
+  ]);
+
+
+  return (
+    <div className="mt-3 lg:mt-16 mx-auto" id="skills">
+      <div className="px-5 lg:px-28">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl lg:text-5xl mb-3">
+            <span className="font-extrabold">Tech</span> Stack
+          </h2>
+          <p className="text-gray-500 text-sm lg:text-lg">
+            Technologies I use to build scalable web applications
+          </p>
+        </motion.div>
+        
+        {/* Vertical Groups Container */}
+        <div className="flex flex-col gap-2">
+          {skillGroups.map((group, gIndex) => (
+            <motion.div
+              key={gIndex}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              // Added border, padding, and rounded corners to each section
+              className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm"
+            >
+              {/* Compact Category Title */}
+              <div className="flex items-center gap-4 mb-6">
+                <h3 className="text-sm font-black uppercase tracking-widest text-gray-400">
+                  {group.title}
+                </h3>
+                <div className="h-[1px] flex-1 bg-gray-200"></div>
+              </div>
+
+              {/* Tight Grid Layout */}
+              <div className="flex flex-wrap gap-8 justify-center lg:justify-start">
+                {group.skills.map((skill) => (
+                  <motion.div
+                    key={skill.id}
+                    onMouseEnter={() => setActiveSkill(skill.name)}
+                    onMouseLeave={() => setActiveSkill(null)}
+                    whileHover={{
+                      y: -6,
+                      scale: 1.05,
+                      boxShadow: "0px 8px 20px rgba(0,0,0,0.12)"
+                    }}
+                    className="bg-white border border-gray-300 rounded-lg p-3 h-24 w-24 lg:h-28 lg:w-28 flex flex-col items-center justify-center gap-2 shadow-sm hover:border-black transition-all cursor-pointer"
+                  >
+                    <motion.div
+                      className="text-3xl lg:text-4xl"
+                      style={{ color: skill.color }}
+                      whileHover={{ scale: 1.2 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {skill.icon}
+                    </motion.div>
+                    <p className="text-[9px] lg:text-[10px] font-bold uppercase text-center text-gray-700">
+                      {skill.name}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Experience Section */}
+      <div className="bg-black w-full my-8 py-8 lg:my-16 lg:py-16">
+        <motion.h2
+          className="text-2xl lg:text-4xl text-center text-white"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          My <span className="font-extrabold">Experience</span>
+        </motion.h2>
+
+        {/* Experience Cards */}
+        <div className="px-5 lg:px-28 my-8 lg:mt-16 space-y-10">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={exp.id}
+              className="bg-black p-5 border border-[#D4D4D8] rounded-md hover:bg-[#27272A] transition-all cursor-pointer"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+                delay: index * 0.2,
+              }}
+              viewport={{ once: true }}
+            >
+              <div className="flex justify-between flex-col items-start lg:flex-row lg:items-center">
+                <div className="flex items-center gap-5">
+                  <img className="w-7" src={exp.logo} alt="" />
+                  <h2 className="font-semibold text-white text-lg lg:text-xl">
+                    {exp.role} at {exp.company}
+                  </h2>
+                </div>
+                <span className="text-[#D4D4D8] font-semibold text-sm mt-4 lg:mt-0 lg:text-base">
+                  {exp.period}
+                </span>
+              </div>
+              <p className="text-[#D4D4D8] mt-6 text-sm/6 lg:text-base font-light">
+                {exp.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+}
