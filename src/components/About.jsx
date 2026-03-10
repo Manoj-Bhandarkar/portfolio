@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <div className="px-5 lg:px-28 flex justify-between flex-col lg:flex-row" id="about">
+<div className="px-5 lg:px-28 flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-20" id="about">
       <motion.div
-        className="lg:w-1/2"
+        className="w-full max-w-[300px] lg:max-w-md flex justify-center"
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ type: "spring", stiffness: 80, damping: 10 }}
         viewport={{ once: true }}
       >
-        <img src="/assets/about-me.svg" alt="About Me Illustration" />
+        <img src="/assets/manoj1.png" alt="About Me Illustration" className="w-full h-auto object-contain"/>
       </motion.div>
 
       <motion.div
@@ -26,16 +26,21 @@ export default function About() {
         </h2>
 
         <p className="text-[#71717A] text-sm/6 lg:text-base mt-5 lg:mt-10">
-          I'm a passionate full-stack developer specializing in **React.js & Node.js**. I thrive on blending technical expertise with sleek UI/UX design to build high-performing, user-friendly applications.
+          I'm a passionate backend-focused developer specializing in Python, FastAPI, and Django, with experience building modern full-stack applications using React for the frontend. I enjoy designing scalable APIs and developing clean, efficient systems that power reliable web applications.
         </p>
 
         <p className="text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-5">
-          My web development journey started in **2015**, and since then, I've continuously evolved, taking on new challenges and keeping up with the latest technologies. Today, I build **cutting-edge web applications** using **Next.js, TypeScript, NestJS, TailwindCSS, Supabase, and more**.
+          My journey into software development began with exploring web technologies and backend architecture, and since then I’ve continuously improved my skills by building practical projects and learning modern development tools.
         </p>
 
         <p className="text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-5">
-          Beyond coding, I enjoy sharing insights on **Twitter**, engaging with **Indie Hackers**, and following the journey of **early-stage startups**. Feel free to follow me on **Twitter** or check out my projects on **GitHub**.
+          Today, I focus on creating high-performance backend services, RESTful APIs, and full-stack applications using technologies like Python, FastAPI, Django, React, PostgreSQL, Docker, and Git.
         </p>
+
+        <p className="text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-5">
+          I’m particularly interested in building scalable web systems, API-driven applications, and modern developer workflows. I enjoy learning new technologies, solving real-world problems through code, and sharing my work through GitHub projects and technical experimentation.
+        </p>
+
       </motion.div>
     </div>
   );
