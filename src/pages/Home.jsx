@@ -72,7 +72,7 @@ export default function Home() {
             transition={{ delay: 0.5, duration: 1 }}
           >
 
-            <span className="font-extrabold">I build scalable APIs and modern web applications.</span><br></br>
+            <span>I build scalable APIs and modern web applications. </span>
 
             I’m passionate about backend development and building scalable web applications. I specialize in developing high-performance APIs using FastAPI and creating modern web applications with React. I enjoy solving real-world problems through clean, efficient code and continuously improving my skills in backend systems and full stack development.
           </motion.p>
@@ -102,7 +102,7 @@ export default function Home() {
         <motion.div
           className="lg:w-[40%] w-[70%] max-w-[450px]" // Reduced width and added a hard max-width
           initial={{ opacity: 1 }}
-          animate={{ opacity: 1, y: [0, -15, 0] }}
+          animate={{ opacity: 1, y: [0, -10, 0] }}
           transition={{
             duration: 4,
             repeat: Infinity,
