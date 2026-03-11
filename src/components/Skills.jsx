@@ -195,7 +195,7 @@ export default function Skills() {
             >
               <div className="flex justify-between flex-col items-start lg:flex-row lg:items-center">
                 <div className="flex items-center gap-5">
-                  <img className="w-7" src={exp.logo} alt="" />
+                  <img className="w-7" width="28" height="28" src={exp.logo} alt="" />
                   <h2 className="font-semibold text-white text-lg lg:text-xl">
                     {exp.role} at {exp.company}
                   </h2>
