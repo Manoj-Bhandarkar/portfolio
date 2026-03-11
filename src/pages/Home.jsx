@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <div className="min-h-[80vh] flex items-center mt-10 lg:mt-0" id="home">
-      <div className="flex justify-between py-10 sm:py-10 items-center px-5 lg:px-28 lg:flex-row flex-col-reverse w-full gap-8 lg:gap-12">
+      <div className="flex justify-between py-10 sm:py-10 items-center min-h-[420px] px-5 lg:px-28 lg:flex-row flex-col-reverse w-full gap-8 lg:gap-12">
         <motion.div
           className="lg:w-[55%] flex flex-col justify-center"
           initial={{ opacity: 0, x: -50 }}
@@ -108,7 +108,15 @@ export default function Home() {
             ease: "easeInOut"
           }}
         >
-          <img className="h-full w-full" src="/assets/hero-vector.webp" alt="Hero Vector" />
+          <img className="h-full w-full object-cover"
+            src="/assets/hero-vector.webp" alt="Hero Vector" fetchpriority="high" loading="eager"
+            srcSet="
+              /assets/hero-vector.webp 400w,
+              /assets/hero-vector.webp 800w,
+              /assets/hero-vector.webp 1200w
+            "
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
         </motion.div>
       </div>
     </div>

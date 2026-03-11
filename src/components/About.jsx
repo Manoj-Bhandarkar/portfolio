@@ -12,7 +12,7 @@ export default function About() {
         transition={{ type: "spring", stiffness: 80, damping: 10 }}
         viewport={{ once: true }}
       >
-        <img src="/assets/about-me.webp"  width="800" height="600" alt="About Me Illustration" className="w-full max-h-[400px] lg:max-h-[550px] h-auto object-contain" />
+        <img src="/assets/about-me.webp"  width="800" height="600" alt="About Me Illustration" className="w-full max-h-[400px] lg:max-h-[550px] h-auto object-contain" loading='lazy'/>
       </motion.div>
 
       <motion.div

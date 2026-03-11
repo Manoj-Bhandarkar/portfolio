@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily:{
-        sora:["Sora", 'sans-serif']
+        sora:["Sora", 'Inter', 'ui-sans-serif', 'system-ui']
       }
     },
   },
