@@ -10,8 +10,6 @@ import {
 } from "react-icons/si";
 import { BsJavascript } from "react-icons/bs";
 
-
-
 export default function Skills() {
   const [activeSkill, setActiveSkill] = useState(null);
   const skillGroups = [
@@ -67,28 +65,6 @@ export default function Skills() {
     }
   ];
 
-  const [experiences] = useState([
-    {
-      id: 1,
-      company: "Google",
-      role: "Lead Software Engineer",
-      period: "Nov 2019 - Present",
-      description:
-        "Developed innovative solutions for Google's core search algorithms, optimizing search accuracy and user experience. Developed innovative solutions for Google's core search algorithms, optimizing search accuracy and user experience. Developed innovative solutions for Google's core search algorithms, optimizing search accuracy and user experience. Developed innovative solutions for Google's core search algorithms, optimizing search accuracy and user experience.",
-      logo: "/assets/google.svg",
-    },
-    {
-      id: 2,
-      company: "Youtube",
-      role: "Software Engineer",
-      period: "Jan 2017 - Oct 2019",
-      description:
-        "At Youtube, I served as a  Software Engineer, focusing on the design and implementation of backend systems for the social media giant's dynamic platform. Working on projects that involved large-scale data processing and user engagement features, I leveraged my expertise to ensure seamless functionality and scalability.",
-      logo: "/assets/youtube.svg",
-    },
-  ]);
-
-
   return (
     <div className="mt-3 lg:mt-16 mx-auto scroll-mt-20" id="skills">
       <div className="px-5 lg:px-28">
@@ -134,6 +110,7 @@ export default function Skills() {
                     key={skill.id}
                     onMouseEnter={() => setActiveSkill(skill.name)}
                     onMouseLeave={() => setActiveSkill(null)}
+                    
                     whileHover={{
                       y: -6,
                       scale: 1.05,
@@ -145,7 +122,7 @@ export default function Skills() {
                     <motion.div
                       className="text-2xl sm:text-3xl lg:text-4xl transition-colors duration-300"
                       style={{ color: skill.color }}
-                      whileHover={{ scale: 1.2 }}
+                      whileHover={{ scale: 1.4 }}
                       transition={{ duration: 0.2 }}
                     >
                       {skill.icon}
@@ -163,54 +140,6 @@ export default function Skills() {
             </motion.div>
           ))}
         </div>
-      </div>
-
-      {/* Experience Section */}
-      <div className="bg-black w-full my-8 py-8 scroll-mt-20" id="experience">
-        <motion.h2
-          className="text-2xl lg:text-4xl text-center text-white"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          My <span className="font-extrabold">Experience</span>
-        </motion.h2>
-
-        {/* Experience Cards */}
-        <div className="px-5 lg:px-28 my-8 lg:mt-16 space-y-10">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.id}
-              className="bg-black p-5 border border-[#D4D4D8] rounded-md hover:bg-[#27272A] transition-all cursor-pointer"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 10,
-                delay: index * 0.2,
-              }}
-              viewport={{ once: true }}
-            >
-              <div className="flex justify-between flex-col items-start lg:flex-row lg:items-center">
-                <div className="flex items-center gap-5">
-                  <img className="w-7 h-7" width="28" height="28" src={exp.logo} alt="" />
-                  <h2 className="font-semibold text-white text-lg lg:text-xl">
-                    {exp.role} at {exp.company}
-                  </h2>
-                </div>
-                <span className="text-[#D4D4D8] font-semibold text-sm mt-4 lg:mt-0 lg:text-base">
-                  {exp.period}
-                </span>
-              </div>
-              <p className="text-[#D4D4D8] mt-6 text-sm/6 lg:text-base font-light">
-                {exp.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
       </div>
     </div>
   );

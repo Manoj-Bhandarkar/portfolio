@@ -109,7 +109,7 @@ export default function Home() {
           }}
         >
           <img className="h-full w-full object-cover"
-            src="/assets/hero-vector.webp" alt="Hero Vector" fetchpriority="high" loading="eager"
+            src="/assets/hero-vector.webp" alt="Hero Vector" fetchPriority="high" loading="eager"
             srcSet="
               /assets/hero-vector.webp 400w,
               /assets/hero-vector.webp 800w,
