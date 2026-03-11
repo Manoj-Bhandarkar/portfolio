@@ -1,14 +1,31 @@
 import React from 'react'
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <div className='bg-black px-4 sm:px-6 lg:px-28 py-4 lg:py-6 flex items-center justify-between mt-12'>
-      <img className='h-5 lg:h-9' src="/assets/footer-logo.webp" width="44" height="44" alt="" />
+    <footer className="bg-zinc-950 border-t border-zinc-800 px-4 sm:px-6 lg:px-28 py-6 mt-12">
+      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-6">
 
-      <div className='text-white lg:font-semibold lg:text-sm font-normal text-xs sm:text-sm text-right lg:space-y-3'>
-        <p>@ 2026 Personal Portfolio</p>
-        <p>Made by -MB</p>
+        <img src="/assets/footer-logo.webp" alt="Manoj Bhandarkar Logo" className="h-8" />
+
+        <div className="flex gap-6 text-gray-300 text-sm">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div className="flex gap-4 text-white text-lg">
+          <FaGithub />
+          <FaLinkedin />
+          <FaEnvelope />
+        </div>
+
       </div>
-    </div>
+
+      <div className="text-gray-400 text-xs mt-6 text-center">
+        © 2026 Manoj Bhandarkar. Built with React & FastAPI.
+      </div>
+    </footer>
   )
 }

@@ -66,13 +66,13 @@ export default function Skills() {
   ];
 
   return (
-    <div className="mt-3 lg:mt-16 mx-auto scroll-mt-20" id="skills">
-      <div className="px-5 lg:px-28">
+    <div className="py-12 lg:py-20 mx-auto scroll-mt-20" id="skills">
+      <div className="px-4 sm:px-6 lg:px-28">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -89,8 +89,9 @@ export default function Skills() {
           {skillGroups.map((group, gIndex) => (
             <motion.div
               key={gIndex}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
+              transition={{duration: 0.6}}
               viewport={{ once: true }}
               // Added border, padding, and rounded corners to each section
               className="border border-gray-200 rounded-xl p-4 sm:p-6 bg-white shadow-sm"
@@ -110,19 +111,19 @@ export default function Skills() {
                     key={skill.id}
                     onMouseEnter={() => setActiveSkill(skill.name)}
                     onMouseLeave={() => setActiveSkill(null)}
-                    
+
                     whileHover={{
-                      y: -6,
-                      scale: 1.05,
+                      y: -8,
+                      scale: 1.08,
                       boxShadow: `0px 8px 20px ${skill.color}33`, // Adds a subtle glow using skill color (33 is 20% opacity)
                       borderColor: skill.color, // Border changes to skill color
                     }}
-                    className="bg-white border hover:bg-black border-black border-gray-300 rounded-lg p-3 h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28 flex flex-col items-center justify-center gap-2 shadow-sm  transition-all cursor-pointer"
+                    className="bg-white border hover:bg-black border-gray-200 rounded-lg p-3 h-20 w-20 sm:h-24 sm:w-24 lg:h-32 lg:w-32 flex flex-col items-center justify-center gap-2 shadow-sm  transition-all cursor-pointer"
                   >
                     <motion.div
                       className="text-2xl sm:text-3xl lg:text-4xl transition-colors duration-300"
                       style={{ color: skill.color }}
-                      whileHover={{ scale: 1.4 }}
+                      whileHover={{ scale: 1.3, rotate: 5 }}
                       transition={{ duration: 0.2 }}
                     >
                       {skill.icon}
@@ -130,7 +131,7 @@ export default function Skills() {
                     <motion.p
                       // Animate text color based on hover state
                       animate={{ color: activeSkill === skill.name ? skill.color : "#374151" }}
-                      className="text-[9px] lg:text-[10px] font-bold uppercase text-center"
+                      className="text-[10px] lg:text-xs font-bold uppercase text-center"
                     >
                       {skill.name}
                     </motion.p>

@@ -40,7 +40,7 @@ export default function Home() {
               Hello, I'm {" "}
               {/* <span className="font-extrabold">Manoj</span>{" "} */}
               <span
-                className="text-white font-extrabold text-2xl md:text-4xl lg:text-5xl whitespace-nowrap block sm:inline"
+                className="text-white font-extrabold text-3xl font-bold md:text-4xl lg:text-5xl whitespace-nowrap block sm:inline"
                 style={{ WebkitTextStroke: "1px black" }}
               >
                 Manoj Bhandarkar

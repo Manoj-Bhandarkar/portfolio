@@ -28,12 +28,17 @@ const certs = [
 
 export default function Certifications() {
     return (
-        <section id="certifications" className="py-10 px-5 lg:px-28 bg-white text-black">
-            <h2 className="text-3xl font-bold mb-10 text-center">
-                Certifications
-            </h2>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section id="certifications" className="py-16 px-4 sm:px-6 lg:py-24 lg:px-28 bg-white text-black">
+            <div className="text-center max-w-2xl mx-auto mb-10">
+                <h2 className="text-2xl lg:text-4xl font-bold">
+                    Certifications 
+                </h2>
+                <p className="text-gray-500 text-sm lg:text-base mt-3">
+                    Professional certifications validating my knowledge in
+                    Python programming, backend development and API design.
+                </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
                 {certs.map((cert, index) => (
                     <motion.div
                         key={cert.id}
@@ -41,7 +46,7 @@ export default function Certifications() {
                         // Slide up animation matching your projects
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        whileHover={{ y: -5 }}
+                        whileHover={{ y: -8, scale: 1.02 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         viewport={{ once: true }}
                     >
@@ -50,16 +55,16 @@ export default function Certifications() {
                             <img
                                 src={cert.image}
                                 alt={cert.title}
-                                className="w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                className="w-full object-contain p-4 transition-transform duration-700 group-hover:scale-110"
                             />
                             {/* Hover Overlay */}
-                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <div className="absolute inset-0 bg-black/40 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                 <a
                                     href={cert.link}            // This uses the link from your certs array
                                     target="_blank"            // Opens in a new tab
                                     rel="noopener noreferrer"  // Security best practice
                                     className="bg-white text-black px-6 py-2 rounded-full font-bold text-sm shadow-lg hover:bg-gray-100 transition-colors flex items-center gap-2"
-                                    
+
                                 >
                                     View Certificate <TbExternalLink size={16} />
                                 </a>
@@ -79,6 +84,8 @@ export default function Certifications() {
                     </motion.div>
                 ))}
             </div>
+       
         </section>
+        
     );
 }
