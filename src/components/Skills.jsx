@@ -140,7 +140,7 @@ export default function Skills() {
                       boxShadow: `0px 8px 20px ${skill.color}33`, // Adds a subtle glow using skill color (33 is 20% opacity)
                       borderColor: skill.color, // Border changes to skill color
                     }}
-                    className="bg-white border border-gray-300 rounded-lg p-3 h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28 flex flex-col items-center justify-center gap-2 shadow-sm  transition-all cursor-pointer"
+                    className="bg-white border hover:bg-black border-black border-gray-300 rounded-lg p-3 h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28 flex flex-col items-center justify-center gap-2 shadow-sm  transition-all cursor-pointer"
                   >
                     <motion.div
                       className="text-2xl sm:text-3xl lg:text-4xl transition-colors duration-300"

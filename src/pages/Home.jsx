@@ -108,7 +108,7 @@ export default function Home() {
             ease: "easeInOut"
           }}
         >
-          <img className="h-full w-full" src="/assets/hero-vector.png" alt="Hero Vector" />
+          <img className="h-full w-full" src="/assets/hero-vector.webp" alt="Hero Vector" />
         </motion.div>
       </div>
     </div>
