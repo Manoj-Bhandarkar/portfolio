@@ -5,28 +5,28 @@ import { motion } from 'framer-motion';
 const projects = [
   {
     id: 1,
-    title: "Crypto Screener Application",
-    description: "Real-time cryptocurrency tracking dashboard with API integration.",
-    tech: ["React", "FastAPI", "PostgreSQL"],
-    image: "/assets/project1.png",
-    link: "#",
-    github: "#"
+    title: "Django Blog Application",
+    description: "A dynamic blogging platform built with Django. Features include user authentication (login/signup), role-based access control, a searchable post database, and a custom administrative dashboard for streamlined content management.",
+    tech: ["Django", "Django ORM", "MVT","SQLite"],
+    image: "/assets/django-blog.webp",
+    link: "https://manojbhandarkar.pythonanywhere.com/",
+    github: "https://github.com/Manoj-Bhandarkar/django-blog"
 
   },
-  {
-    id: 2,
-    title: "Stock Market Dashboard",
-    description: "An interactive dashboard to monitor stock prices and market trends efficiently.",
-    image: "/assets/project1.png",
-    link: "#",
-    github: "#"
-  }
+  // {
+  //   id: 2,
+  //   title: "Stock Market Dashboard",
+  //   description: "An interactive dashboard to monitor stock prices and market trends efficiently.",
+  //   image: "/assets/project1.png",
+  //   link: "#",
+  //   github: "#"
+  // }
 ];
 
 export default function Projects() {
   return (
     <div className="bg-black px-4 sm:px-6 lg:px-28 py-12 lg:py-20 py-16 lg:py-24" id="projects">
-      <h2 className="text-2xl lg:text-4xl text-center text-white">
+      <h2 className="text-3xl lg:text-5xl text-center text-white mb-3">
         My <span className="font-extrabold">Projects</span>
       </h2>
 

@@ -66,7 +66,7 @@ export default function Skills() {
   ];
 
   return (
-    <div className="py-16 lg:py-24 mx-auto " id="skills">
+    <div className="py-12 lg:py-20 mx-auto " id="skills">
       <div className="px-4 sm:px-6 lg:px-28">
         {/* Section Header */}
         <motion.div

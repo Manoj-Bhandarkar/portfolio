@@ -62,7 +62,7 @@ export default function Home() {
               />
             </motion.h2>
             <div className="flex flex-wrap gap-3 mt-6 text-sm text-gray-600">
-              {["FastAPI", "Python", "PostgreSQL", "Docker", "React", "Redis"].map((tech) => (
+              {["Python", "FastAPI", "Django", "React", "PostgreSQL", "Docker"].map((tech) => (
                 <span
                   key={tech}
                   className="px-3 py-1 border border-gray-300 rounded-full bg-gray-50 hover:bg-black hover:text-white transition"
@@ -101,10 +101,10 @@ export default function Home() {
                 whileTap={{ scale: 0.9 }}
               >
                 <social.Icon className="w-6 h-6 lg:w-5 lg:h-5" />
-                
+
               </motion.a>
             ))}
-            
+
           </motion.div>
 
         </motion.div>
