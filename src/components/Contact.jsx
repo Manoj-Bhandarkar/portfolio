@@ -1,12 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { BiLogoGmail } from 'react-icons/bi';
 import { BsGithub } from 'react-icons/bs';
 import { IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
 import { IoMdMail } from "react-icons/io";
 import { FaPhone } from "react-icons/fa6";
+import emailjs from "emailjs-com";
+import toast from "react-hot-toast";
 
 export default function Contact() {
+  const [loading, setLoading] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const socialLinks = [
@@ -17,7 +20,25 @@ export default function Contact() {
   ];
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Message sent successfully!");
+    setLoading(true);
+
+    emailjs.sendForm(
+      import.meta.env.VITE_EMAIL_SERVICE,
+      import.meta.env.VITE_EMAIL_TEMPLATE,
+      e.target,
+      import.meta.env.VITE_EMAIL_KEY
+    )
+      .then(
+        () => {
+          toast.success("Message sent successfully!");
+          setLoading(false);
+          e.target.reset();
+        },
+        () => {
+          toast.error("Failed to send message");
+          setLoading(false);
+        }
+      );
   };
 
   return (
@@ -45,11 +66,11 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="w-full lg:w-[40%] bg-white p-6 rounded-lg shadow"
         >
-          <form className='w-full space-y-3 lg:space-y-5 ' onSubmit={handleSubmit}>
-            <input className='border-2 px-4 py-3 border-zinc-300 focus:border-black focus:outline-none rounded placeholder:text-[#71717A] sm:text-base w-full' type="text" placeholder='Your name' required />
-            <input className='border-2 px-4 py-3 border-zinc-300 focus:border-black focus:outline-none rounded placeholder:text-[#71717A] sm:text-base w-full' type="email" placeholder='Email' required />
-            <input className='border-2 px-4 py-3 border-zinc-300 focus:border-black focus:outline-none rounded placeholder:text-[#71717A] sm:text-base w-full' type="text" placeholder='Your website (If exists)' />
-            <textarea className='resize-none border-2 px-5 py-3 h-32 border-zinc-300 focus:border-black focus:outline-none placeholder:text-[#71717A]  rounded text-sm w-full' placeholder='How can I help?*'></textarea>
+          <form className='w-full space-y-3 lg:space-y-5 space-y-4 ' onSubmit={handleSubmit}>
+            <input className='border-2 px-4 py-3 border-zinc-300 focus:border-black focus:outline-none rounded placeholder:text-[#71717A] sm:text-base w-full' name="name" type="text" placeholder='Your name' required />
+            <input className='border-2 px-4 py-3 border-zinc-300 focus:border-black focus:outline-none rounded placeholder:text-[#71717A] sm:text-base w-full' name="email" type="email" placeholder='Your Email' required />
+            <input className='border-2 px-4 py-3 border-zinc-300 focus:border-black focus:outline-none rounded placeholder:text-[#71717A] sm:text-base w-full' name="subject" type="text" placeholder='Subject)' />
+            <textarea className='resize-none border-2 px-5 py-3 h-32 border-zinc-300 focus:border-black focus:outline-none placeholder:text-[#71717A]  rounded text-sm w-full' name="message" placeholder='Your Message'></textarea>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -64,6 +85,7 @@ export default function Contact() {
               >
                 Get In Touch
               </motion.button>
+
               <motion.div
                 className="flex items-center gap-x-2 lg:gap-x-5 "
                 initial={{ opacity: 0, y: 10 }}
@@ -85,6 +107,14 @@ export default function Contact() {
                 ))}
               </motion.div>
             </motion.div>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              type="submit"
+              disabled={loading}
+              className=" justify-center w-full lg:w-auto lg:flex-1 hover:shadow-lg text-white px-3 py-2 rounded flex items-center gap-x-3 font-medium"
+            >
+              {loading ? "Sending..." : ""}
+            </motion.button>
           </form>
         </motion.div>
 
@@ -99,10 +129,10 @@ export default function Contact() {
 
           </div>
           <p className="text-green-600 font-medium mt-3">
-            🟢 Open to backend / full-stack opportunities
+            🟢 Open to Backend / Full-Stack opportunities
           </p>
           <p className="text-zinc-500 text-sm mt-2">
-            📍 Maharashtra, India
+            📍 Chhatrapati Sambhaji Nagar, Maharashtra, India
           </p>
           <p className='text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-6'>
             I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences.
