@@ -4,7 +4,7 @@ import { FaTwitter } from 'react-icons/fa6';
 
 export default function Footer() {
   return (
-    <footer className="bg-zinc-950 border-t border-white/5 px-6 sm:px-6 lg:px-28 py-12 mt-4">
+    <footer className="bg-zinc-950 border-t border-white/5 px-6 sm:px-6 lg:px-28 py-4 mt-4">
       <div className="flex flex-col lg:flex-row lg:justify-between items-center lg:items-center gap-8 text-center lg:text-left">
 
         <img src="/assets/footer-logo.webp" alt="Manoj Bhandarkar Logo" className="w-12 md:w-12 h-auto object-contain brightness-110" />
