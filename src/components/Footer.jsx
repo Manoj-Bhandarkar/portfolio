@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="bg-zinc-950 border-t border-zinc-800 px-4 sm:px-6 lg:px-28 py-6 mt-12">
       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-6">
 
-        <img src="/assets/footer-logo.webp" alt="Manoj Bhandarkar Logo" className="h-8" />
+        <img src="/assets/footer-logo.webp" alt="Manoj Bhandarkar Logo" className="w-20 md:w-20 h-auto object-contain" />
 
         <div className="flex gap-6 text-gray-300 text-sm">
           <a href="#about">About</a>

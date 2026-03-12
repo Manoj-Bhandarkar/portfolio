@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function About() {
 
   return (
-    <div className="px-5 sm:px-6 lg:px-28 flex flex-col lg:flex-row items-center gap-8 lg:gap-20 py-12 lg:py-20 scroll-mt-10" id="about">
+    <div className="px-5 sm:px-6 lg:px-28 flex flex-col lg:flex-row items-center gap-8 lg:gap-20 py-12 lg:py-20 py-16 lg:py-24" id="about">
       <motion.div
         className="w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[420px] lg:max-w-md flex justify-center"
         initial={{ opacity: 0, x: -50 }}

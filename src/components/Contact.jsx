@@ -53,7 +53,7 @@ export default function Contact() {
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
       // scroll-mt-28 fixes the navbar overlap issue
-      className='py-16 lg:py-24 px-4 sm:px-6 lg:px-28 lg:my-16 scroll-mt-28'
+      className='py-16 lg:py-24 px-4 sm:px-6 lg:px-28 lg:py-16 '
       id='contact'
     >
       <motion.h2

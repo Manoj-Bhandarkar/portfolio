@@ -24,7 +24,7 @@ export default function Experience() {
 
     return (
 
-        <div className="mt-3 lg:mt-16 mx-auto scroll-mt-20" id="experience">
+        <div className="mt-3 lg:mt-16 mx-auto py-16 lg:py-24" id="experience">
 
             {/* Experience Section */}
             <div className="bg-black w-full my-8 py-12 lg:py-20 scroll-mt-20" id="experience">
