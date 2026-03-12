@@ -1,4 +1,27 @@
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem; /* This is the same as scroll-pt-20 */
+  scroll-padding-top: 80px; /* This is the same as scroll-pt-20 */
+}
+body {
+  overflow-x: hidden;
+  font-family: "Sora", sans-serif;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f4f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 10px;
+}
+
+::selection {
+  background: black;
+  color: white;
 }

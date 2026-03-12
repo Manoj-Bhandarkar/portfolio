@@ -4,24 +4,31 @@ import Skills from './components/Skills'
 import Navbar from './components/Navbar'
 import About from './components/About'
 import Footer from './components/Footer'
-import Projects from './components/Projects'
 import Contact from './components/Contact'
 import CustomCursor from './utils/CursorAnimation'
-import Certifications from "./components/Cerifications"
 import Experience from './components/Experience'
+import { lazy, Suspense } from "react"
+const CertificationsLazy = lazy(() => import("./components/Cerifications"))
+const ProjectsLazy = lazy(() => import("./components/Projects"))
 
 export default function App() {
+
   return (
-    <div className='font-sora scroll-smooth overflow-x-hidden'>
+    <div className='font-sora overflow-x-hidden'>
       <CustomCursor />
       <Navbar />
-      <Home />
-      <Certifications />
-      <Projects />
-      <Skills />
-      <Experience />
-      <About />
-      <Contact />
+      <main>
+        <Home />
+
+        <Suspense fallback={<div className="text-center py-20 text-gray-500">Loading section...</div>}>
+          <CertificationsLazy />
+          <ProjectsLazy />
+        </Suspense>
+        <Skills />
+        <Experience />
+        <About />
+        <Contact />
+      </main>
       <Footer />
     </div>
   )

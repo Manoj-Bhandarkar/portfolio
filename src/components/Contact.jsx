@@ -15,6 +15,10 @@ export default function Contact() {
     { Icon: BiLogoGmail, href: "mailto:developer.manojbhandarkar@gmail.com" },
     { Icon: IoLogoTwitter, href: "https://twitter.com" },
   ];
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Message sent successfully!");
+  };
 
   return (
     <motion.div
@@ -22,7 +26,7 @@ export default function Contact() {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
-      className='my-10 px-4 sm:px-6 lg:px-28 lg:my-16'
+      className='py-16 lg:py-24 px-4 sm:px-6 lg:px-28 lg:my-16'
       id='contact'
     >
       <motion.h2
@@ -39,13 +43,13 @@ export default function Contact() {
           initial={{ x: -50, opacity: 0 }}
           animate={isInView ? { x: 0, opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8 }}
-          className='w-full lg:w-[40%]'
+          className="w-full lg:w-[40%] bg-white p-6 rounded-lg shadow"
         >
-          <form className='w-full space-y-3 lg:space-y-5'>
-            <input className='border-2 px-4 py-3 border-black rounded placeholder:text-[#71717A] sm:text-base w-full' type="text" placeholder='Your name' required />
-            <input className='border-2 px-4 py-3 border-black rounded placeholder:text-[#71717A] sm:text-base w-full' type="email" placeholder='Email' required />
-            <input className='border-2 px-4 py-3 border-black rounded placeholder:text-[#71717A] sm:text-base w-full' type="text" placeholder='Your website (If exists)' />
-            <textarea className='resize-none border-2 px-5 py-3 h-32 border-black placeholder:text-[#71717A]  rounded text-sm w-full' placeholder='How can I help?*'></textarea>
+          <form className='w-full space-y-3 lg:space-y-5 ' onSubmit={handleSubmit}>
+            <input className='border-2 px-4 py-3 border-zinc-300 focus:border-black focus:outline-none rounded placeholder:text-[#71717A] sm:text-base w-full' type="text" placeholder='Your name' required />
+            <input className='border-2 px-4 py-3 border-zinc-300 focus:border-black focus:outline-none rounded placeholder:text-[#71717A] sm:text-base w-full' type="email" placeholder='Email' required />
+            <input className='border-2 px-4 py-3 border-zinc-300 focus:border-black focus:outline-none rounded placeholder:text-[#71717A] sm:text-base w-full' type="text" placeholder='Your website (If exists)' />
+            <textarea className='resize-none border-2 px-5 py-3 h-32 border-zinc-300 focus:border-black focus:outline-none placeholder:text-[#71717A]  rounded text-sm w-full' placeholder='How can I help?*'></textarea>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -73,7 +77,7 @@ export default function Contact() {
                     target={social.href.startsWith('mailto:') ? '_self' : '_blank'}
                     rel="noreferrer"
                     className="bg-white p-2 sm:p-3 rounded border-2 border-black text-black"
-                    whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
+                    whileHover={{ scale: 1.15, y: -3, backgroundColor: "#000", color: "#fff" }}
                     whileTap={{ scale: 0.9 }}
                   >
                     <social.Icon className="w-4 h-4 lg:w-5 lg:h-5" />
@@ -91,10 +95,15 @@ export default function Contact() {
           className='lg:w-1/2'
         >
           <div className='font-extrabold text-2xl lg:text-5xl mt-5 lg:mt-0 space-y-1 lg:space-y-3'>
-            <h2>Let's <span className='text-white' style={{ WebkitTextStroke: '1px black' }}>talk</span> for</h2>
-            <h2>Something special</h2>
-          </div>
+            <h2>Let's <span className='text-white' style={{ WebkitTextStroke: '1px black' }}>Work</span> Together</h2>
 
+          </div>
+          <p className="text-green-600 font-medium mt-3">
+            🟢 Open to backend / full-stack opportunities
+          </p>
+          <p className="text-zinc-500 text-sm mt-2">
+            📍 Maharashtra, India
+          </p>
           <p className='text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-6'>
             I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences.
           </p>
@@ -103,7 +112,7 @@ export default function Contact() {
             <motion.a
               whileHover={{ x: 5 }}
               className='flex items-center gap-2 group'
-              href="mailto:Youremail@gmail.com"
+              href="mailto:developer.manojbhandarkar@gmail.com"
             >
               <span className='border-2 transition-all border-transparent group-hover:border-black rounded-full p-1'>
                 <IoMdMail className="w-4 h-4 lg:w-5 lg:h-5" />
@@ -114,7 +123,7 @@ export default function Contact() {
             <motion.a
               whileHover={{ x: 5 }}
               className='flex items-center gap-2 group'
-              href="tele:+918788796066"
+              href="tel:+918788796066"
             >
               <span className='border-2 transition-all border-transparent group-hover:border-black rounded-full p-[5px]'>
                 <FaPhone className="w-3 h-3 lg:w-4 lg:h-4" />

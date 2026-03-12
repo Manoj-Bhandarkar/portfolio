@@ -49,19 +49,28 @@ export default function Home() {
             <motion.h2 variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}>
               <TypeAnimation
                 sequence={[
-                  'Backend Developer',
-                  1000,
+                  'Backend Engineer',
+                  1500,
                   'FastAPI Developer',
-                  1000,
+                  1500,
                   'Fullstack Developer',
-                  1000,
+                  1500,
                 ]}
                 speed={10}
                 style={{ fontWeight: 600 }}
                 repeat={Infinity}
               />
             </motion.h2>
-
+            <div className="flex flex-wrap gap-3 mt-6 text-sm text-gray-600">
+              {["FastAPI", "Python", "PostgreSQL", "Docker", "React", "Redis"].map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1 border border-gray-300 rounded-full bg-gray-50 hover:bg-black hover:text-white transition"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </motion.div>
 
           <motion.p
@@ -71,10 +80,9 @@ export default function Home() {
             transition={{ delay: 0.5, duration: 1 }}
           >
 
-            <span>I build scalable APIs and modern web applications. </span>
-
-            I’m passionate about backend development and building scalable web applications. I specialize in developing high-performance APIs using FastAPI and creating modern web applications with React. I enjoy solving real-world problems through clean, efficient code and continuously improving my skills in backend systems and full stack development.
-          </motion.p>
+            I build scalable backend systems and modern web applications using
+            <strong> FastAPI, Python, and React</strong>.
+            Focused on performance, clean architecture, and solving real-world problems.  </motion.p>
 
           <motion.div
             className="flex items-center gap-x-5 mt-10 lg:mt-14"
@@ -93,17 +101,20 @@ export default function Home() {
                 whileTap={{ scale: 0.9 }}
               >
                 <social.Icon className="w-6 h-6 lg:w-5 lg:h-5" />
+                
               </motion.a>
             ))}
+            
           </motion.div>
+
         </motion.div>
 
         <motion.div
           className="lg:w-[40%] w-[85%] sm:w-[70%] max-w-[420px]"
           initial={{ opacity: 1 }}
-          animate={{ opacity: 1, y: [0, -20, 0] }}
+          animate={{ opacity: 1, y: [0, -15, 0] }}
           transition={{
-            duration: 4,
+            duration: 6,
             repeat: Infinity,
             ease: "easeInOut"
           }}
