@@ -96,7 +96,7 @@ export default function Home() {
                 href={social.href} // Dynamic link here
                 target={social.href.startsWith('mailto:') ? '_self' : '_blank'}   // Opens in a new tab
                 rel="noreferrer"   // Security best practice
-                className="bg-white p-2 sm:p-2.5 lg:p-3 rounded border-2 border-black"
+                className="bg-white p-2 sm:p-2.5 lg:p-3 rounded border-2 border-zinc-200 text-black"
                 whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
                 whileTap={{ scale: 0.9 }}
               >
