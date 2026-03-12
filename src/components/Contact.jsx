@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { BiLogoGmail } from 'react-icons/bi';
 import { BsGithub } from 'react-icons/bs';
 import { IoLogoLinkedin, IoLogoTwitter } from 'react-icons/io5';
@@ -9,15 +9,18 @@ import emailjs from "emailjs-com";
 import toast from "react-hot-toast";
 
 export default function Contact() {
+  const [isSent, setIsSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
+
   const socialLinks = [
-    { Icon: BsGithub, href: "https://github.com/Manoj-Bhandarkar" },
-    { Icon: IoLogoLinkedin, href: "https://www.linkedin.com/in/manoj-bhandarkar/" },
+    { Icon: BsGithub, href: "https://github.com" },
+    { Icon: IoLogoLinkedin, href: "https://www.linkedin.com" },
     { Icon: BiLogoGmail, href: "mailto:developer.manojbhandarkar@gmail.com" },
     { Icon: IoLogoTwitter, href: "https://twitter.com" },
   ];
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -32,11 +35,13 @@ export default function Contact() {
         () => {
           toast.success("Message sent successfully!");
           setLoading(false);
+          setIsSent(true); // This hides the button and shows the success message
           e.target.reset();
         },
-        () => {
+        (error) => {
           toast.error("Failed to send message");
           setLoading(false);
+          console.error("EmailJS Error:", error);
         }
       );
   };
@@ -47,116 +52,114 @@ export default function Contact() {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8 }}
-      className='py-16 lg:py-24 px-4 sm:px-6 lg:px-28 lg:my-16'
+      // scroll-mt-28 fixes the navbar overlap issue
+      className='py-16 lg:py-24 px-4 sm:px-6 lg:px-28 lg:my-16 scroll-mt-28'
       id='contact'
     >
       <motion.h2
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ y: -30, opacity: 0 }}
         animate={isInView ? { y: 0, opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.6 }}
         className='text-2xl lg:text-4xl text-center'
       >
         Contact <span className='font-extrabold'>Me</span>
       </motion.h2>
 
-      <div className='flex justify-between items-center mt-8 lg:mt-16 flex-col lg:flex-row'>
+      <div className='flex justify-between items-start mt-8 lg:mt-16 flex-col lg:flex-row gap-10'>
+        {/* FORM SECTION */}
         <motion.div
           initial={{ x: -50, opacity: 0 }}
           animate={isInView ? { x: 0, opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full lg:w-[40%] bg-white p-6 rounded-lg shadow"
+          className="w-full lg:w-[45%] bg-white p-6 rounded-lg shadow-sm border border-zinc-100"
         >
-          <form className='w-full space-y-3 lg:space-y-5 space-y-4 ' onSubmit={handleSubmit}>
-            <input className='border-2 px-4 py-3 border-zinc-300 focus:border-black focus:outline-none rounded placeholder:text-[#71717A] sm:text-base w-full' name="name" type="text" placeholder='Your name' required />
-            <input className='border-2 px-4 py-3 border-zinc-300 focus:border-black focus:outline-none rounded placeholder:text-[#71717A] sm:text-base w-full' name="email" type="email" placeholder='Your Email' required />
-            <input className='border-2 px-4 py-3 border-zinc-300 focus:border-black focus:outline-none rounded placeholder:text-[#71717A] sm:text-base w-full' name="subject" type="text" placeholder='Subject)' />
-            <textarea className='resize-none border-2 px-5 py-3 h-32 border-zinc-300 focus:border-black focus:outline-none placeholder:text-[#71717A]  rounded text-sm w-full' name="message" placeholder='Your Message'></textarea>
+          <form className='w-full space-y-4' onSubmit={handleSubmit}>
+            <input className='border-2 px-4 py-3 border-zinc-200 focus:border-black focus:outline-none rounded w-full transition-colors' name="name" type="text" placeholder='Your name' required />
+            <input className='border-2 px-4 py-3 border-zinc-200 focus:border-black focus:outline-none rounded w-full transition-colors' name="email" type="email" placeholder='Your Email' required />
+            <input className='border-2 px-4 py-3 border-zinc-200 focus:border-black focus:outline-none rounded w-full transition-colors' name="subject" type="text" placeholder='Subject' />
+            <textarea className='resize-none border-2 px-4 py-3 h-32 border-zinc-200 focus:border-black focus:outline-none rounded w-full transition-colors' name="message" placeholder='Your Message' required></textarea>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0 }}
-              transition={{ duration: 0.8 }}
-              className='flex justify-between gap-3 lg:gap-5 flex-col lg:flex-row'
-            >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                type='submit'
-                className='bg-black justify-center w-full lg:w-auto lg:flex-1 hover:shadow-lg text-white px-3 py-2 rounded flex items-center gap-x-3 font-medium'
-              >
-                Get In Touch
-              </motion.button>
+            <div className='flex flex-col sm:flex-row justify-between items-center gap-4 pt-2'>
+              <AnimatePresence mode="wait">
+                {!isSent ? (
+                  <motion.button
+                    key="submit-btn"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.2 }}
+                    type='submit'
+                    disabled={loading}
+                    className='bg-black text-white px-8 py-3 rounded font-medium w-full sm:w-auto disabled:bg-zinc-400 hover:shadow-lg transition-all'
+                  >
+                    {loading ? "Sending..." : "Get In Touch"}
+                  </motion.button>
+                ) : (
+                  <motion.div
+                    key="success-msg"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-green-600 font-bold flex items-center gap-2 py-2"
+                  >
+                    ✅ Message sent! I'll be in touch.
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
-              <motion.div
-                className="flex items-center gap-x-2 lg:gap-x-5 "
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 1 }}
-              >
+              {/* SOCIAL LINKS - Always visible */}
+              <div className="flex items-center gap-x-3">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={index}
                     href={social.href}
-                    target={social.href.startsWith('mailto:') ? '_self' : '_blank'}
+                    target="_blank"
                     rel="noreferrer"
-                    className="bg-white p-2 sm:p-3 rounded border-2 border-black text-black"
-                    whileHover={{ scale: 1.15, y: -3, backgroundColor: "#000", color: "#fff" }}
-                    whileTap={{ scale: 0.9 }}
+                    className="bg-white p-2 rounded border border-zinc-200 text-black hover:border-black transition-colors"
+                    whileHover={{ y: -3, backgroundColor: "#000", color: "#fff" }}
                   >
-                    <social.Icon className="w-4 h-4 lg:w-5 lg:h-5" />
+                    <social.Icon className="w-5 h-5" />
                   </motion.a>
                 ))}
-              </motion.div>
-            </motion.div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              type="submit"
-              disabled={loading}
-              className=" justify-center w-full lg:w-auto lg:flex-1 hover:shadow-lg text-white px-3 py-2 rounded flex items-center gap-x-3 font-medium"
-            >
-              {loading ? "Sending..." : ""}
-            </motion.button>
+              </div>
+            </div>
           </form>
         </motion.div>
 
+        {/* INFO SECTION */}
         <motion.div
           initial={{ x: 50, opacity: 0 }}
           animate={isInView ? { x: 0, opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8 }}
           className='lg:w-1/2'
         >
-          <div className='font-extrabold text-2xl lg:text-5xl mt-5 lg:mt-0 space-y-1 lg:space-y-3'>
+          <div className='font-extrabold text-2xl lg:text-5xl space-y-1 lg:space-y-3'>
             <h2>Let's <span className='text-white' style={{ WebkitTextStroke: '1px black' }}>Work</span> Together</h2>
-
           </div>
-          <p className="text-green-600 font-medium mt-3">
-            🟢 Open to Backend / Full-Stack opportunities
+          <p className="text-green-600 font-medium mt-4 flex items-center gap-2">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+            </span>
+            Open to Backend / Full-Stack opportunities
           </p>
           <p className="text-zinc-500 text-sm mt-2">
             📍 Chhatrapati Sambhaji Nagar, Maharashtra, India
           </p>
-          <p className='text-[#71717A] text-sm/6 lg:text-base mt-3 lg:mt-6'>
+          <p className='text-zinc-500 text-sm lg:text-base mt-6 leading-relaxed'>
             I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences.
           </p>
 
-          <div className='font-semibold text-sm lg:text-xl flex flex-col mt-6 gap-2 lg:gap-4'>
-            <motion.a
-              whileHover={{ x: 5 }}
-              className='flex items-center gap-2 group'
-              href="mailto:developer.manojbhandarkar@gmail.com"
-            >
-              <span className='border-2 transition-all border-transparent group-hover:border-black rounded-full p-1'>
-                <IoMdMail className="w-4 h-4 lg:w-5 lg:h-5" />
+          <div className='font-semibold text-sm lg:text-lg flex flex-col mt-8 gap-4'>
+            <motion.a whileHover={{ x: 5 }} className='flex items-center gap-3 group' href="mailto:developer.manojbhandarkar@gmail.com">
+              <span className='border border-zinc-200 group-hover:border-black rounded-full p-2 transition-colors'>
+                <IoMdMail className="w-5 h-5" />
               </span>
               developer.manojbhandarkar@gmail.com
             </motion.a>
 
-            <motion.a
-              whileHover={{ x: 5 }}
-              className='flex items-center gap-2 group'
-              href="tel:+918788796066"
-            >
-              <span className='border-2 transition-all border-transparent group-hover:border-black rounded-full p-[5px]'>
-                <FaPhone className="w-3 h-3 lg:w-4 lg:h-4" />
+            <motion.a whileHover={{ x: 5 }} className='flex items-center gap-3 group' href="tel:+918788796066">
+              <span className='border border-zinc-200 group-hover:border-black rounded-full p-2 transition-colors'>
+                <FaPhone className="w-4 h-4" />
               </span>
               +91 8788796066
             </motion.a>
