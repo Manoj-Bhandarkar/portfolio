@@ -8,7 +8,7 @@ import Contact from './components/Contact'
 import CustomCursor from './utils/CursorAnimation'
 import Experience from './components/Experience'
 import { lazy, Suspense } from "react"
-const CertificationsLazy = lazy(() => import("./components/Cerifications"))
+const CertificationsLazy = lazy(() => import("./components/Certifications"))
 const ProjectsLazy = lazy(() => import("./components/Projects"))
 
 export default function App() {
@@ -19,7 +19,6 @@ export default function App() {
       <Navbar />
       <main>
         <Home />
-
         <Suspense fallback={<div className="text-center py-20 text-gray-500">Loading section...</div>}>
           <CertificationsLazy />
           <ProjectsLazy />
