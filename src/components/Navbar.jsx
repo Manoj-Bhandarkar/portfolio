@@ -26,6 +26,34 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const sections = ["about", "skills", "projects", "contact", "home","experience"];
+
+    const handleScrollActive = () => {
+      const scrollPosition = window.scrollY + 200;
+
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (!element) return;
+
+        const offsetTop = element.offsetTop;
+        const offsetHeight = element.offsetHeight;
+
+        if (
+          scrollPosition >= offsetTop &&
+          scrollPosition < offsetTop + offsetHeight
+        ) {
+          setActive(section);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScrollActive);
+    handleScrollActive(); // run once on page load
+
+    return () => window.removeEventListener("scroll", handleScrollActive);
+  }, []);
+
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -54,7 +82,7 @@ export default function Navbar() {
     }),
   };
 
-  const navLinks = ["about", "skills", "projects", "contact"];
+  const navLinks = ["about", "skills", "projects", "contact","experience"];
 
 
   return (
@@ -62,7 +90,7 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 0.8 }}
       transition={{ duration: 0.5 }}
-      className={`fixed px-4 sm:px-6 lg:px-24 top-0 left-0 w-full z-50 p-6 transition-all duration-300 `}
+      className={`fixed px-4 sm:px-6 lg:px-24 top-0 left-0 w-full z-50 py-4 px-4 lg:px-24p-6 transition-all duration-300 `}
     >
       <div className="container mx-auto flex justify-end lg:justify-between items-center gap-4">
         {/* Logo */}
@@ -81,14 +109,14 @@ export default function Navbar() {
             <li key={section} className="relative group">
               <button
                 onClick={() => scrollToSection(section)}
-                className={`transition-colors ${active === section ? "text-blue-600" : "text-black hover:text-blue-500"
+                className={`transition-colors ${active === section ? "text-black-600" : "text-black hover:text-black-500"
                   }`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
               <motion.span
                 animate={active === section ? { width: "100%" } : { width: "0%" }}
-                className="absolute -bottom-1 left-0 h-[2px] bg-blue-600 transition-all duration-300 group-hover:w-full"
+                className="absolute -bottom-1 left-0 h-[2px] bg-black-600 transition-all duration-300 group-hover:w-full"
               />
             </li>
           ))}

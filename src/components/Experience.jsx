@@ -24,10 +24,10 @@ export default function Experience() {
 
     return (
 
-        <div className="mt-4 lg:mt-4 mx-auto py-12 lg:py-6" id="experience">
+        <div className="mt-2 lg:mt-4 mx-auto my-auto lg:py-0" id="experience">
 
             {/* Experience Section */}
-            <div className="bg-black w-full my-8 py-12 lg:py-20 scroll-mt-20" id="experience">
+            <div className="bg-black w-full my-8 py-16 lg:py-32 scroll-mt-20" id="experience">
                 <motion.h2
                     className="text-2xl lg:text-4xl text-center text-white"
                     initial={{ opacity: 0, y: -20 }}

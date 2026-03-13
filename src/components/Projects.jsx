@@ -25,7 +25,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="bg-black px-4 sm:px-6 lg:px-28 py-12 lg:py-20 py-16 lg:py-24" id="projects">
+    <div className="bg-black px-4 sm:px-6 lg:px-28 py-12 py-16 lg:py-32" id="projects">
       <h2 className="text-3xl lg:text-5xl text-center text-white mb-3">
         My <span className="font-extrabold">Projects</span>
       </h2>
