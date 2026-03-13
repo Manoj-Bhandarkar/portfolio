@@ -58,34 +58,31 @@ export default function Navbar() {
 
 
   return (
-     <motion.nav
+    <motion.nav
       initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      animate={{ y: 0, opacity: 0.8 }}
       transition={{ duration: 0.5 }}
-      className={`fixed px-4 sm:px-6 lg:px-24 top-0 left-0 w-full z-50 bg-white/40 backdrop-xl p-6 transition-all duration-300 ${
-        hasShadow ? "shadow-lg border-b border-white/20" : "shadow-none"
-      }`}
+      className={`fixed px-4 sm:px-6 lg:px-24 top-0 left-0 w-full z-50 p-6 transition-all duration-300 `}
     >
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto flex justify-end lg:justify-between items-center gap-4">
         {/* Logo */}
         <motion.img
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => scrollToSection("home")}
-          className="h-9 cursor-pointer"
+          className="h-7 cursor-pointer  hidden lg:block"
           src="/assets/logo.webp"
           alt="Manoj Bhandakr Logo"
         />
 
         {/* Desktop Navigation */}
-        <ul className="hidden lg:flex items-center gap-x-8 font-semibold">
+        <ul className="hidden lg:flex items-center gap-x-10 font-semibold">
           {navLinks.map((section) => (
             <li key={section} className="relative group">
               <button
                 onClick={() => scrollToSection(section)}
-                className={`transition-colors ${
-                  active === section ? "text-blue-600" : "text-black hover:text-blue-500"
-                }`}
+                className={`transition-colors ${active === section ? "text-blue-600" : "text-black hover:text-blue-500"
+                  }`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
@@ -115,7 +112,7 @@ export default function Navbar() {
 
         {/* Mobile Toggle Button */}
         <motion.button
-          className="lg:hidden text-3xl z-[60] relative"
+          className="lg:hidden text-3xl z-[60] relative bg-transparent p-0 border-none"
           onClick={() => setIsOpen(!isOpen)}
           whileTap={{ scale: 0.9 }}
         >
@@ -153,15 +150,14 @@ export default function Navbar() {
                   >
                     <button
                       onClick={() => scrollToSection(section)}
-                      className={`${
-                        active === section ? "text-blue-600" : "text-black"
-                      } active:scale-95 transition-transform`}
+                      className={`${active === section ? "text-blue-600" : "text-black"
+                        } active:scale-95 transition-transform`}
                     >
                       {section.charAt(0).toUpperCase() + section.slice(1)}
                     </button>
                   </motion.li>
                 ))}
-                
+
                 {/* Mobile Resume Button */}
                 <motion.li custom={navLinks.length} variants={linkVariants}>
                   <a
