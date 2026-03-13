@@ -6,6 +6,15 @@ import { HiOutlineMenu, HiX } from "react-icons/hi";
 export default function Navbar() {
   const [hasShadow, setHasShadow] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState("home");
+
+  useEffect(() => {
+    const handleClickOutside = () => setIsOpen(false);
+    if (isOpen) {
+      document.addEventListener("click", handleClickOutside);
+    }
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [isOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,11 +28,12 @@ export default function Navbar() {
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
-      window.scrollTo({
-        top: section.offsetTop - 110,
+      section.scrollIntoView({
         behavior: "smooth",
+        block: "start",
       });
     }
+    setActive(id);
     setIsOpen(false);
   };
 
@@ -32,7 +42,7 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`fixed lg:px-28 px-5 top-0 left-0 w-full z-50 bg-white p-5 relative transition-shadow duration-300 ${hasShadow ? "shadow-md" : "shadow-none"
+      className={`fixed px-4 sm:px-6 lg:px-24 top-0 left-0 w-full z-50 bg-white/50 backdrop-blur-md p-5 relative transition-shadow duration-300 ${hasShadow ? "shadow-md" : "shadow-none"
         }`}
     >
       <div className="container mx-auto flex justify-between items-center">
@@ -43,7 +53,8 @@ export default function Navbar() {
           className="h-9 cursor-pointer"
           width="140" height="44"
           src="/assets/logo.webp"
-          alt="Logo"
+          loading="lazy"
+          alt="Manoj Bhandarkar Logo"
         />
 
         <ul className="hidden lg:flex items-center gap-x-7 font-semibold">
@@ -51,21 +62,32 @@ export default function Navbar() {
             <motion.li
               key={section}
               className="group"
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ y: -2}}
             >
-              <button onClick={() => scrollToSection(section)}>
+              <button
+                onClick={() => scrollToSection(section)}
+                className={`${active === section ? "text-blue-600 font-bold" : "text-black"
+                  }`}
+              >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
-              <motion.span
-                className="w-0 transition-all duration-300 group-hover:w-full h-[2px] bg-black flex"
-                layout
-              ></motion.span>
+             <motion.span
+  className="block h-[2px] bg-black w-0 group-hover:w-full transition-all duration-300"
+/>
             </motion.li>
           ))}
         </ul>
-
+        <button
+          onClick={() => scrollToSection("contact")}
+          className="hidden lg:block bg-black text-white px-5 py-2 rounded-lg"
+        >
+          Hire Me
+        </button>
         <motion.a
-          href=""
+          href="/assets/manoj-bhandarkar-resume.pdf"
+          download
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden relative lg:inline-block px-4 py-2 font-medium group"
         >
           <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
@@ -88,9 +110,9 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ y: "-100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-100%" }}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
             transition={{ duration: 0.3 }}
             className="lg:hidden fixed top-0 right-0 h-full w-full bg-white shadow"
           >

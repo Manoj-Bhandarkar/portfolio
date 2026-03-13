@@ -5,24 +5,28 @@ import { motion } from 'framer-motion';
 const projects = [
   {
     id: 1,
-    title: "Crypto Screener Application",
-    description: "A powerful tool for tracking and analyzing cryptocurrency trends in real-time.",
-    image: "/assets/project1.png",
-    link: "#"
+    title: "Django Blog Application",
+    description: "A dynamic blogging platform built with Django. Features include user authentication (login/signup), role-based access control, a searchable post database, and a custom administrative dashboard for streamlined content management.",
+    tech: ["Django", "Django ORM", "MVT","SQLite"],
+    image: "/assets/django-blog.webp",
+    link: "https://manojbhandarkar.pythonanywhere.com/",
+    github: "https://github.com/Manoj-Bhandarkar/django-blog"
+
   },
-  {
-    id: 2,
-    title: "Stock Market Dashboard",
-    description: "An interactive dashboard to monitor stock prices and market trends efficiently.",
-    image: "/assets/project1.png",
-    link: "#"
-  }
+  // {
+  //   id: 2,
+  //   title: "Stock Market Dashboard",
+  //   description: "An interactive dashboard to monitor stock prices and market trends efficiently.",
+  //   image: "/assets/project1.png",
+  //   link: "#",
+  //   github: "#"
+  // }
 ];
 
 export default function Projects() {
   return (
-    <div className="bg-black px-5 lg:px-28 py-8 my-8 lg:py-16 lg:my-16" id="projects">
-      <h2 className="text-2xl lg:text-4xl text-center text-white">
+    <div className="bg-black px-4 sm:px-6 lg:px-28 py-12 lg:py-20 py-16 lg:py-24" id="projects">
+      <h2 className="text-3xl lg:text-5xl text-center text-white mb-3">
         My <span className="font-extrabold">Projects</span>
       </h2>
 
@@ -36,25 +40,51 @@ export default function Projects() {
             transition={{ type: "spring", stiffness: 80, damping: 10, delay: index * 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="lg:w-[500px] w-full max-w-md rounded-2xl overflow-hidden border border-zinc-800">
+            <div className="group lg:w-[500px] w-full max-w-md rounded-2xl overflow-hidden border border-zinc-800">
               <img
-                className="w-full h-full hover:scale-105 transition-all duration-500 cursor-pointer object-cover"
+                className="w-full h-full group-hover:scale-110 transition-all duration-500 cursor-pointer object-cover"
                 src={project.image}
                 alt={project.title}
               />
             </div>
 
             <div className="lg:w-1/2 lg:space-y-6 space-y-4">
-              <h2 className="font-extrabold text-white/20 mt-5 lg:mt-0 text-4xl lg:text-6xl tracking-tighter">
+              <h2 className="font-extrabold text-white/30 mt-5 lg:mt-0 text-4xl lg:text-6xl tracking-tighter">
                 {String(project.id).padStart(2, "0")}
               </h2>
               <p className="font-bold text-white text-xl sm:text-2xl lg:text-3xl">{project.title}</p>
               <p className="font-light text-sm/6 lg:text-base text-[#71717A]">
                 {project.description}
               </p>
-              <a href={project.link} className="text-white mt-3 block" target="_blank" rel="noopener noreferrer">
-                <TbExternalLink size={23} />
-              </a>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {project.tech?.map((t, i) => (
+                  <span
+                    key={i}
+                    className="text-xs bg-zinc-800 text-white px-2 py-1 rounded"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <div className="flex gap-4 mt-4">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-black px-4 py-2 rounded text-sm font-semibold"
+                >
+                  Live Demo
+                </a>
+
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-black px-4 py-2 rounded text-sm font-semibold"
+                >
+                  GitHub
+                </a>
+              </div>
             </div>
           </motion.div>
         ))}
