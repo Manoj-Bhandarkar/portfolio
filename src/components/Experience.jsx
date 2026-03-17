@@ -8,18 +8,10 @@ export default function Experience() {
             role: "Technical Consultant",
             period: "Dec 2023 - Jun 2024",
             description:
-                "At Leaping Frog Solutions, I served as a Technical Consultant, acting as the primary bridge between functional teams and stakeholders to translate complex business requirements into scalable system deployments. Working on projects that involved large-scale data migrations and custom web service architecture, I leveraged my expertise to ensure seamless cross-platform data exchange and robust technical functionality.",
+                "At Leaping Frog Solutions, I worked as a Technical Consultant supporting ERP system implementations and customizations. I collaborated with functional teams to understand business requirements and helped translate them into technical solutions. My responsibilities included working with ERP workflows, assisting in data migration tasks, and supporting reporting and system integration requirements.",
             logo: "/assets/leaping.webp",
         },
-        {
-            id: 2,
-            company: "Shalom ERP",
-            role: "Software Engineer",
-            period: "May 2020 - Nov 2023",
-            description:
-                "At ShalomERP, I served as an ERP Consultant, focusing on the end-to-end execution of full-cycle Business Central/NAV implementations for diverse organizational scales. Working on projects that involved complex AL language development and core module configuration, I leveraged my expertise to provide critical post-go-live support and performance optimizations to ensure seamless system functionality",
-            logo: "/assets/shalom.webp",
-        },
+       
     ];
 
     return (

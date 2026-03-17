@@ -8,7 +8,7 @@ import { TypeAnimation } from "react-type-animation";
 export default function Home() {
   const socialLinks = [
     { Icon: BsGithub, href: "https://github.com/Manoj-Bhandarkar" },
-    { Icon: IoLogoLinkedin, href: "https://www.linkedin.com/in/manoj-bhandarkar/" },
+    { Icon: IoLogoLinkedin, href: "https://www.linkedin.com/in/manoj-bhandarkar-dev/" },
     { Icon: BiLogoGmail, href: "mailto:developer.manojbhandarkar@gmail.com" },
     { Icon: IoLogoTwitter, href: "https://twitter.com" },
   ];
@@ -51,6 +51,8 @@ export default function Home() {
                 sequence={[
                   'Backend Engineer',
                   1500,
+                  'Django Developer',
+                  1500,
                   'FastAPI Developer',
                   1500,
                   'Fullstack Developer',
@@ -62,7 +64,7 @@ export default function Home() {
               />
             </motion.h2>
             <div className="flex flex-wrap gap-3 mt-6 text-sm text-gray-600">
-              {["Python", "FastAPI", "Django", "React", "PostgreSQL", "Docker"].map((tech) => (
+              {["Python", "Django", "FastAPI","React", "PostgreSQL", "Docker"].map((tech) => (
                 <span
                   key={tech}
                   className="px-3 py-1 border border-gray-300 rounded-full bg-gray-50 hover:bg-black hover:text-white transition"
@@ -81,7 +83,7 @@ export default function Home() {
           >
 
             I build scalable backend systems and modern web applications using
-            <strong> FastAPI, Python, and React</strong>.
+            <strong> Python, Django, FastAPI,  and React</strong>.
             Focused on performance, clean architecture, and solving real-world problems.  </motion.p>
 
           <motion.div
