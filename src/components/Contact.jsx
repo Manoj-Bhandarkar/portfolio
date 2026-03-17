@@ -15,8 +15,8 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   const socialLinks = [
-    { Icon: BsGithub, href: "https://github.com" },
-    { Icon: IoLogoLinkedin, href: "https://www.linkedin.com" },
+    { Icon: BsGithub, href: "https://github.com/Manoj-Bhandarkar" },
+    { Icon: IoLogoLinkedin, href: "https://www.linkedin.com/in/manoj-bhandarkar-dev/" },
     { Icon: BiLogoGmail, href: "mailto:developer.manojbhandarkar@gmail.com" },
     { Icon: IoLogoTwitter, href: "https://twitter.com" },
   ];

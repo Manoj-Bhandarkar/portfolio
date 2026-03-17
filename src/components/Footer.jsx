@@ -18,7 +18,7 @@ export default function Footer() {
 
         <div className="flex gap-8 text-zinc-300">
           <a href="https://github.com/Manoj-Bhandarkar" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:scale-110 transition-all"><FaGithub /></a>
-          <a href="https://www.linkedin.com/in/manoj-bhandarkar" target="_blank" rel="noopener noreferrer"  className="hover:text-white hover:scale-110 transition-all"><FaLinkedin /></a>
+          <a href="https://www.linkedin.com/in/manoj-bhandarkar-dev" target="_blank" rel="noopener noreferrer"  className="hover:text-white hover:scale-110 transition-all"><FaLinkedin /></a>
           <a href="mailto:manoj.bhandarkar@gmail.com" className="hover:text-white hover:scale-110 transition-all"><FaEnvelope /></a>
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:scale-110 transition-all"><FaTwitter /></a>
         </div>

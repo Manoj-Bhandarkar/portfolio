@@ -52,7 +52,7 @@ If you like this project, please star it and share it with your friends!
 ## Contact
 If you have any questions or suggestions, feel free to reach out via:
 - **Email:** developer.manojbhandarkar@gmail.com
-- **LinkedIn:** [@manoj-bhandarkar](https://linkedin.com/in/manoj-bhandarkar)
+- **LinkedIn:** [@manoj-bhandarkar](https://linkedin.com/in/manoj-bhandarkar-dev)
 
 ---
 Made with ❤️ by Manoj Bhandarkar.
