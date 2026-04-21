@@ -64,7 +64,7 @@ export default function Home() {
               />
             </motion.h2>
             <div className="flex flex-wrap gap-3 mt-6 text-sm text-gray-600">
-              {["Python", "Django", "FastAPI","React", "PostgreSQL", "Docker"].map((tech) => (
+              {["Python", "FastAPI", "Django", "AWS", "PostgreSQL", "Docker"].map((tech) => (
                 <span
                   key={tech}
                   className="px-3 py-1 border border-gray-300 rounded-full bg-gray-50 hover:bg-black hover:text-white transition"
@@ -83,7 +83,7 @@ export default function Home() {
           >
 
             I build scalable backend systems and modern web applications using
-            <strong> Python, Django, FastAPI,  and React</strong>.
+            <strong> Python, FastAPI,  Django, AWS, PostgreSQL and React</strong>.
             Focused on performance, clean architecture, and solving real-world problems.  </motion.p>
 
           <motion.div

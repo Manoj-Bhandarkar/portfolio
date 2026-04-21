@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaPython, FaDocker, FaGitAlt, FaHtml5, FaCss3, FaReact, FaAws, FaBootstrap } from "react-icons/fa";
+import { FaPython, FaDocker, FaGitAlt, FaHtml5, FaCss3, FaReact, FaAws, FaBootstrap, FaGithub } from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
 import {
   SiFastapi, SiDjango, SiSqlalchemy, SiSwagger, SiPostman,
   SiGithubactions, SiGunicorn, SiNginx,
   SiJsonwebtokens, SiMysql, SiTailwindcss,
-  SiAkamai, SiMongodb, SiPydantic, SiAuth0,
+  SiAkamai, SiMongodb, SiPydantic, SiAuth0, SiCelery, SiRedis,
+  SiNextdotjs
 } from "react-icons/si";
 import { BsJavascript } from "react-icons/bs";
 
@@ -18,22 +19,22 @@ export default function Skills() {
       skills: [
         { id: 1, name: "Python", icon: <FaPython />, color: "#3776AB" },
         { id: 2, name: "Django", icon: <SiDjango />, color: "#092E20" },
-        { id: 3, name: "DRF", icon: <SiDjango />, color: "#A62C2C" },
+        { id: 3, name: "Django REST Framework", icon: <SiDjango />, color: "#A62C2C" },
         { id: 4, name: "FastAPI", icon: <SiFastapi />, color: "#05998B" },
-        { id: 5, name: "SQLAlchemy", icon: <SiSqlalchemy />, color: "#f86c07" },
+        { id: 5, name: "SQLAlchemy ORM", icon: <SiSqlalchemy />, color: "#D71F00" },
         { id: 6, name: "Pydantic", icon: <SiPydantic />, color: "#1E90FF" },
+     
       ]
     },
     {
-      title: "Frontend",
+      title: "Deployment & DevOps",
       skills: [
-        { id: 7, name: "HTML", icon: <FaHtml5 />, color: "#FFA500" },
-        { id: 8, name: "CSS3", icon: <FaCss3 />, color: "#1572B6" },
-        { id: 9, name: "JavaScript", icon: <BsJavascript />, color: "#F7DF1E" },
-        { id: 10, name: "React", icon: <FaReact />, color: "#61DAFB" },
-        { id: 11, name: "Tailwind CSS", icon: <SiTailwindcss />, color: "#61DAFB" },
-        { id: 12, name: "Bootstrap", icon: <FaBootstrap />, color: "#61DAFB" },
-
+        { id: 7, name: "AWS", icon: <FaAws />, color: "#FF9900" },
+        { id: 8, name: "Docker", icon: <FaDocker />, color: "#2496ED" },
+        { id: 9, name: "Nginx", icon: <SiNginx />, color: "#009639" },
+        { id: 10, name: "Gunicorn", icon: <SiGunicorn />, color: "#499848" },
+        { id: 11, name: "CI/CD GitHub Actions", icon: <SiGithubactions />, color: "#2088FF" },
+        { id: 12, name: "Linode", icon: <SiAkamai />, color: "#00A95C" },
       ]
     },
     {
@@ -41,30 +42,29 @@ export default function Skills() {
       skills: [
         { id: 13, name: "PostgreSQL", icon: <BiLogoPostgresql />, color: "#4169E1" },
         { id: 14, name: "MySQL", icon: <SiMysql />, color: "#4479A1" },
-        { id: 15, name: "MongoDB", icon: <SiMongodb />, color: "#47A248" },
       ]
     },
     {
-      title: "Deployment",
+      title: "Frontend",
       skills: [
-        { id: 16, name: "Docker", icon: <FaDocker />, color: "#2496ED" },
-        { id: 17, name: "Nginx", icon: <SiNginx />, color: "#009639" },
-        { id: 18, name: "Gunicorn", icon: <SiGunicorn />, color: "#499848" },
-        { id: 19, name: "GitHub Actions", icon: <SiGithubactions />, color: "#2088FF" },
-        { id: 20, name: "Linode", icon: <SiAkamai />, color: "#2088FF" },
-        { id: 21, name: "AWS", icon: <FaAws />, color: "#FF9900" },
+        { id: 15, name: "HTML", icon: <FaHtml5 />, color: "#E34F26" },
+        { id: 16, name: "CSS3", icon: <FaCss3 />, color: "#1572B6" },
+        { id: 17, name: "JavaScript", icon: <BsJavascript />, color: "#F7DF1E" },
+        { id: 18, name: "React", icon: <FaReact />, color: "#61DAFB" },
+        { id: 19, name: "Next.js", icon: <SiNextdotjs />, color: "#000000" },
+        { id: 20, name: "Bootstrap", icon: <FaBootstrap />, color: "#7952B3" },
       ]
     },
     {
       title: "Tools",
       skills: [
-        { id: 22, name: "Git", icon: <FaGitAlt />, color: "#F05032" },
+        { id: 21, name: "Git", icon: <FaGitAlt />, color: "#F05032" },
+        { id: 22, name: "GitHub", icon: <FaGithub />, color: "#181717" },
         { id: 23, name: "Postman", icon: <SiPostman />, color: "#FF6C37" },
         { id: 24, name: "Swagger", icon: <SiSwagger />, color: "#85EA2D" },
       ]
     }
   ];
-
   return (
     <div className="py-12 lg:py-20 mx-auto " id="skills">
       <div className="px-4 sm:px-6 lg:px-28">
@@ -85,13 +85,13 @@ export default function Skills() {
         </motion.div>
 
         {/* Vertical Groups Container */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1">
           {skillGroups.map((group, gIndex) => (
             <motion.div
               key={gIndex}
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{duration: 0.6}}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               // Added border, padding, and rounded corners to each section
               className="border border-gray-200 rounded-xl p-4 sm:p-6 bg-white shadow-sm"

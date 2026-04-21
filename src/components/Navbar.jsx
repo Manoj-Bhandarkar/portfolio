@@ -27,7 +27,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sections = ["about", "skills", "projects", "contact", "home","experience"];
+    const sections = ["about", "skills", "projects", "contact", "home", "experience"];
 
     const handleScrollActive = () => {
       const scrollPosition = window.scrollY + 200;
@@ -82,65 +82,64 @@ export default function Navbar() {
     }),
   };
 
-  const navLinks = ["about", "skills", "projects", "contact","experience"];
+  const navLinks = ["about", "skills", "projects", "contact", "experience"];
 
 
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 0.8 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`fixed px-4 sm:px-6 lg:px-24 top-0 left-0 w-full z-50 py-4 px-4 lg:px-24p-6 transition-all duration-300 `}
+      className={`fixed z-50 transition-all duration-500 ease-in-out 
+        ${hasShadow && "lg:top-4 lg:right-6 lg:left-auto lg:w-auto lg:rounded-full lg:bg-white/80 lg:backdrop-blur-md lg:shadow-lg lg:border lg:border-gray-200"} 
+    top-0 left-0 w-full px-4 sm:px-4 lg:px-18 py-2`}
     >
-      <div className="container mx-auto flex justify-end lg:justify-between items-center gap-4">
-        {/* Logo */}
-        <motion.img
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => scrollToSection("home")}
-          className="h-7 cursor-pointer  hidden lg:block"
-          src="/assets/logo.webp"
-          alt="Manoj Bhandakr Logo"
-        />
+      <div className={`container mx-auto flex items-center justify-end ${hasShadow ? "gap-4" : "lg:justify-between gap-4"}`}>
+        {/* Logo - Hidden when scrolled to keep the right-side menu small */}
+        {!hasShadow && (
+          <motion.img
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => scrollToSection("home")}
+            className="h-7 cursor-pointer hidden lg:block"
+            src="/assets/logo.webp"
+            alt="Manoj Bhandakr Logo"
+          />
+        )}
 
         {/* Desktop Navigation */}
-        <ul className="hidden lg:flex items-center gap-x-10 font-semibold">
+        <ul className={`hidden lg:flex items-center font-semibold ${hasShadow ? "gap-x-6 text-sm" : "gap-x-10"}`}>
           {navLinks.map((section) => (
             <li key={section} className="relative group">
               <button
                 onClick={() => scrollToSection(section)}
-                className={`transition-colors ${active === section ? "text-black-600" : "text-black hover:text-black-500"
-                  }`}
+                className={`transition-colors ${active === section ? "text-blue-600" : "text-black hover:text-blue-500"}`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
-              <motion.span
-                animate={active === section ? { width: "100%" } : { width: "0%" }}
-                className="absolute -bottom-1 left-0 h-[2px] bg-black-600 transition-all duration-300 group-hover:w-full"
-              />
             </li>
           ))}
         </ul>
-
         {/* Desktop CTA / Resume */}
-        <div className="hidden lg:flex items-center gap-4">
-          <motion.a
-            href="/assets/manoj-bhandarkar-resume.pdf"
-            download
-            target="_blank"
-            className="relative inline-block px-4 py-2 font-medium group"
-          >
-            <span className="absolute inset-0 w-full h-full transition duration-200 transform translate-x-1 translate-y-1 bg-black group-hover:translate-x-0 group-hover:translate-y-0"></span>
-            <span className="absolute inset-0 w-full h-full bg-white border-2 border-black"></span>
-            <span className="relative text-black group-hover:text-black transition-colors duration-200 flex items-center gap-x-2">
-              Resume <TbDownload size={16} />
-            </span>
-          </motion.a>
-        </div>
-
+        {!hasShadow && (
+          <div className="hidden lg:flex items-center gap-4">
+            <motion.a
+              href="/assets/manoj-bhandarkar-resume.pdf"
+              download
+              target="_blank"
+              className="relative inline-block px-4 py-2 font-medium group"
+            >
+              <span className="absolute inset-0 w-full h-full transition duration-200 transform translate-x-1 translate-y-1 bg-black group-hover:translate-x-0 group-hover:translate-y-0"></span>
+              <span className="absolute inset-0 w-full h-full bg-white border-2 border-black"></span>
+              <span className="relative text-black group-hover:text-black transition-colors duration-200 flex items-center gap-x-2">
+                Resume <TbDownload size={16} />
+              </span>
+            </motion.a>
+          </div>
+        )}
         {/* Mobile Toggle Button */}
         <motion.button
-          className="lg:hidden text-3xl z-[60] relative bg-transparent p-0 border-none"
+          className="lg:hidden text-2xl z-[60] relative bg-transparent p-0 border-none"
           onClick={() => setIsOpen(!isOpen)}
           whileTap={{ scale: 0.9 }}
         >
