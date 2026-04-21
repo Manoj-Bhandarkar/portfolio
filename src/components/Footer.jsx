@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="bg-zinc-950 border-t border-white/5 px-6 sm:px-6 lg:px-28 py-4 mt-4">
       <div className="flex flex-col lg:flex-row lg:justify-between items-center lg:items-center gap-8 text-center lg:text-left">
 
-        <img src="/assets/footer-logo.webp" alt="Manoj Bhandarkar Logo" className="w-12 md:w-14 h-auto object-contain brightness-110" />
+        <img src="https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784279/footer-logo_akpvum.webp" alt="Manoj Bhandarkar Logo" className="w-12 md:w-14 h-auto object-contain brightness-110" />
 
         <div className="flex flex-wrap justify-center font-medium gap-x-8 gap-y-4 text-zinc-400  text-sm">
           <a href="#about" className="hover:text-white transition-colors">About</a>

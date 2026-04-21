@@ -122,13 +122,8 @@ export default function Home() {
           }}
         >
           <img className="h-full w-full object-cover"
-            src="/assets/hero-vector.webp" alt="Hero Vector" fetchPriority="high" loading="eager"
-            srcSet="
-              /assets/hero-vector.webp 400w,
-              /assets/hero-vector.webp 800w,
-              /assets/hero-vector.webp 1200w
-            "
-            sizes="(max-width: 768px) 100vw, 50vw"
+            src="https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784280/hero-vector_mrli7e.webp" alt="Hero Vector" fetchPriority="high" loading="eager"
+            sizes="(max-width: 768px) 100vw, 50vw" objectFit="cover"
           />
         </motion.div>
       </div>

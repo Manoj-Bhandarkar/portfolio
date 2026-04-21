@@ -7,23 +7,23 @@ const certs = [
         id: 1,
         title: "Python Essentials 1",
         issuer: "Cisco Networking Academy",
-        image: "/assets/PythonEs1.webp", // Replace with your actual path
-        viewLink: "/assets/PythonEss1.pdf",
+        image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_700/v1776784278/PythonEs1_movcce.webp", // Replace with your actual path
+        viewLink: "https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784284/PythonEss1_dvwvm5.pdf",
         verifylink: "https://www.credly.com/badges/349eabc9-fe8c-47ef-951f-481f133396b0/public_url"
     },
     {
         id: 2,
         title: "Python Essentials 2",
         issuer: "Cisco Networking Academy",
-        image: "/assets/PythonEs2.webp", // Replace with your actual path
-        viewLink: "/assets/PythonEss2.pdf",
+        image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_700/v1776784279/PythonEs2_lgdgma.webp", // Replace with your actual path
+        viewLink: "https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784285/PythonEss2_wa7hc5.pdf",
         verifylink: "https://www.credly.com/badges/d0e58590-3198-4564-97f8-bce5bb8e4c8a/public_url"
     },
     {
         id: 3,
         title: "FastAPI",
         issuer: "Udemy",
-        image: "/assets/FastAPI-Cert.webp", // Replace with your actual path
+        image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_700/v1776784277/FastAPI-Cert_ieopl9.webp", // Replace with your actual path
         viewLink: "https://www.udemy.com/certificate/UC-7eabe03f-d89b-410b-830c-1c89017128aa/"
     }
 ];

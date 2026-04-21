@@ -9,7 +9,7 @@ export default function Experience() {
             period: "Dec 2023 - Jun 2024",
             description:
                 "At Leaping Frog Solutions, I worked as a Technical Consultant supporting ERP system implementations and customizations. I collaborated with functional teams to understand business requirements and helped translate them into technical solutions. My responsibilities included working with ERP workflows, assisting in data migration tasks, and supporting reporting and system integration requirements.",
-            logo: "/assets/leaping.webp",
+            logo: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_100/v1776784276/leaping_faosqm.webp",
         },
        
     ];

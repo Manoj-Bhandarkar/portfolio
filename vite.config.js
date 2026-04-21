@@ -6,4 +6,7 @@ export default defineConfig({
   plugins: [
     react(),
   ],
+  build: {
+    assetsInlineLimit: 4096, // Inlines files smaller than 4kb
+  }
 })

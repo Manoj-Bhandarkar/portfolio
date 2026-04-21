@@ -12,7 +12,7 @@ export default function About() {
         transition={{ type: "spring", stiffness: 60, damping: 12 }}
         viewport={{ once: true }}
       >
-        <img src="/assets/about-me.webp" width="800" height="600" alt="About Me Illustration" className="w-full max-h-[400px] lg:max-h-[550px] h-auto object-contain" loading='lazy' />
+        <img src="https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_500/v1776784281/about-me_odb2dx.webp" width="800" height="600" alt="About Me Illustration" className="w-full max-h-[400px] lg:max-h-[550px] h-auto object-contain" loading='lazy' />
       </motion.div>
 
       <motion.div

@@ -102,7 +102,7 @@ export default function Navbar() {
             whileTap={{ scale: 0.95 }}
             onClick={() => scrollToSection("home")}
             className="h-7 cursor-pointer hidden lg:block"
-            src="/assets/logo.webp"
+            src="https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784274/logo_nczbzv.webp"
             alt="Manoj Bhandakr Logo"
           />
         )}
@@ -124,7 +124,7 @@ export default function Navbar() {
         {!hasShadow && (
           <div className="hidden lg:flex items-center gap-4">
             <motion.a
-              href="/assets/manoj-bhandarkar-resume.pdf"
+              href="https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784276/manoj-bhandarkar-resume_qsu9xj.pdf"
               download
               target="_blank"
               className="relative inline-block px-4 py-2 font-medium group"
@@ -188,7 +188,7 @@ export default function Navbar() {
                 {/* Mobile Resume Button */}
                 <motion.li custom={navLinks.length} variants={linkVariants}>
                   <a
-                    href="/assets/manoj-bhandarkar-resume.pdf"
+                    href="https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784276/manoj-bhandarkar-resume_qsu9xj.pdf"
                     download
                     className="flex items-center gap-2 text-sm bg-black text-white px-6 py-3 rounded-xl w-fit"
                   >
