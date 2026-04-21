@@ -4,7 +4,7 @@ html {
 }
 body {
   overflow-x: hidden;
-  font-family: "Sora", sans-serif;
+  font-family: "Sora", sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 section {
   padding-top: 60px; /* Gives the content some breathing room */

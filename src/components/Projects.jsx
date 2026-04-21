@@ -8,7 +8,7 @@ const projects = [
     title: "Django Blog Application",
     description: "A dynamic blogging platform built with Django. Features include user authentication (login/signup), role-based access control, a searchable post database, and a custom administrative dashboard for streamlined content management.",
     tech: ["Django", "Django ORM", "MVT", "SQLite"],
-    image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_800/v1776784277/project1_ixv4hb.webp",
+    image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_auto/v1776784277/project1_ixv4hb.webp",
     link: "https://manojbhandarkar.pythonanywhere.com/",
     github: "https://github.com/Manoj-Bhandarkar/django-blog"
 
@@ -18,7 +18,7 @@ const projects = [
     title: "E-commerce Application",
     description: "A full-stack e-commerce platform built with FastAPI and Next.js, featuring secure authentication, product management, cart and order workflows, and integrated payment processing. Designed with a production-oriented architecture including background task processing, containerization, and cloud deployment. Key features include JWT-based authentication, product search & pagination, cart management, order checkout, payment integration, and email verification.",
     tech: ["FastAPI", "Next.js", "PostgreSQL", "Docker", "AWS", "Celery", "Redis"],
-    image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_800/v1776784275/project2_vzhh0n.png",
+    image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_auto/v1776784275/project2_vzhh0n.png",
     link: "#",
     github: "https://github.com/Manoj-Bhandarkar/fastapi-production-ecommerce"
   }

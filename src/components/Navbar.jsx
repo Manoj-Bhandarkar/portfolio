@@ -8,52 +8,57 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState("home");
 
-  // 1. Prevent background scrolling when menu is open
+  const sections = ["home", "about", "skills", "projects", "experience", "contact"];
+  const navLinks = ["about", "skills", "projects", "contact", "experience"];
+
+  // ✅ Prevent background scroll when menu open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
   }, [isOpen]);
 
+  // ✅ Optimized scroll shadow (no reflow issue)
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setHasShadow(window.scrollY > 0);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setHasShadow(window.scrollY > 0);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // ✅ FIXED: Active section using Intersection Observer (NO reflow)
   useEffect(() => {
-    const sections = ["about", "skills", "projects", "contact", "home", "experience"];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-40% 0px -40% 0px",
+        threshold: 0,
+      }
+    );
 
-    const handleScrollActive = () => {
-      const scrollPosition = window.scrollY + 200;
+    sections.forEach((section) => {
+      const el = document.getElementById(section);
+      if (el) observer.observe(el);
+    });
 
-      sections.forEach((section) => {
-        const element = document.getElementById(section);
-        if (!element) return;
-
-        const offsetTop = element.offsetTop;
-        const offsetHeight = element.offsetHeight;
-
-        if (
-          scrollPosition >= offsetTop &&
-          scrollPosition < offsetTop + offsetHeight
-        ) {
-          setActive(section);
-        }
-      });
-    };
-
-    window.addEventListener("scroll", handleScrollActive);
-    handleScrollActive(); // run once on page load
-
-    return () => window.removeEventListener("scroll", handleScrollActive);
+    return () => observer.disconnect();
   }, []);
 
+  // ✅ Smooth scroll
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -66,8 +71,7 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
-
-  // Animation Variants
+  // Animations
   const menuVariants = {
     closed: { x: "100%", transition: { type: "spring", stiffness: 400, damping: 40 } },
     opened: { x: 0, transition: { type: "spring", stiffness: 400, damping: 40 } },
@@ -82,9 +86,6 @@ export default function Navbar() {
     }),
   };
 
-  const navLinks = ["about", "skills", "projects", "contact", "experience"];
-
-
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -92,10 +93,11 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
       className={`fixed z-50 transition-all duration-500 ease-in-out 
         ${hasShadow && "lg:top-4 lg:right-6 lg:left-auto lg:w-auto lg:rounded-full lg:bg-white/80 lg:backdrop-blur-md lg:shadow-lg lg:border lg:border-gray-200"} 
-    top-0 left-0 w-full px-4 sm:px-4 lg:px-18 py-2`}
+        top-0 left-0 w-full px-4 sm:px-4 lg:px-18 py-2`}
     >
       <div className={`container mx-auto flex items-center justify-end ${hasShadow ? "gap-4" : "lg:justify-between gap-4"}`}>
-        {/* Logo - Hidden when scrolled to keep the right-side menu small */}
+        
+        {/* Logo */}
         {!hasShadow && (
           <motion.img
             whileHover={{ scale: 1.05 }}
@@ -103,55 +105,58 @@ export default function Navbar() {
             onClick={() => scrollToSection("home")}
             className="h-7 cursor-pointer hidden lg:block"
             src="https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784274/logo_nczbzv.webp"
-            alt="Manoj Bhandakr Logo"
+            alt="Manoj Logo"
           />
         )}
 
-        {/* Desktop Navigation */}
+        {/* Desktop Menu */}
         <ul className={`hidden lg:flex items-center font-semibold ${hasShadow ? "gap-x-6 text-sm" : "gap-x-10"}`}>
           {navLinks.map((section) => (
-            <li key={section} className="relative group">
+            <li key={section}>
               <button
                 onClick={() => scrollToSection(section)}
-                className={`transition-colors ${active === section ? "text-blue-600" : "text-black hover:text-blue-500"}`}
+                className={`transition-colors ${
+                  active === section ? "text-blue-600" : "text-black hover:text-blue-500"
+                }`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
             </li>
           ))}
         </ul>
-        {/* Desktop CTA / Resume */}
+
+        {/* Resume Button */}
         {!hasShadow && (
           <div className="hidden lg:flex items-center gap-4">
             <motion.a
               href="https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784276/manoj-bhandarkar-resume_qsu9xj.pdf"
-              download
               target="_blank"
               className="relative inline-block px-4 py-2 font-medium group"
             >
               <span className="absolute inset-0 w-full h-full transition duration-200 transform translate-x-1 translate-y-1 bg-black group-hover:translate-x-0 group-hover:translate-y-0"></span>
               <span className="absolute inset-0 w-full h-full bg-white border-2 border-black"></span>
-              <span className="relative text-black group-hover:text-black transition-colors duration-200 flex items-center gap-x-2">
+              <span className="relative text-black flex items-center gap-x-2">
                 Resume <TbDownload size={16} />
               </span>
             </motion.a>
           </div>
         )}
-        {/* Mobile Toggle Button */}
+
+        {/* Mobile Toggle */}
         <motion.button
-          className="lg:hidden text-2xl z-[60] relative bg-transparent p-0 border-none"
+          className="lg:hidden text-2xl z-[60]"
           onClick={() => setIsOpen(!isOpen)}
           whileTap={{ scale: 0.9 }}
         >
-          {isOpen ? <HiX className="text-black" /> : <HiOutlineMenu />}
+          {isOpen ? <HiX /> : <HiOutlineMenu />}
         </motion.button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop Blur */}
+            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -160,36 +165,31 @@ export default function Navbar() {
               className="fixed inset-0 bg-black/10 backdrop-blur-md z-40 lg:hidden"
             />
 
-            {/* Slide-in Menu */}
+            {/* Menu */}
             <motion.div
               variants={menuVariants}
               initial="closed"
               animate="opened"
               exit="closed"
-              className="fixed top-0 right-0 h-screen w-[85%] bg-white/70 backdrop-blur-2xl z-40 shadow-2xl lg:hidden flex flex-col p-12 border-l border-white/30"
+              className="fixed top-0 right-0 h-screen w-[85%] bg-white/70 backdrop-blur-2xl z-40 shadow-2xl flex flex-col p-12 border-l border-white/30"
             >
-              <ul className="flex flex-col gap-y-6 mt-20 font-bold text-l">
+              <ul className="flex flex-col gap-y-6 mt-20 font-bold text-lg">
                 {navLinks.map((section, i) => (
-                  <motion.li
-                    key={section}
-                    custom={i}
-                    variants={linkVariants}
-                  >
+                  <motion.li key={section} custom={i} variants={linkVariants}>
                     <button
                       onClick={() => scrollToSection(section)}
-                      className={`${active === section ? "text-blue-600" : "text-black"
-                        } active:scale-95 transition-transform`}
+                      className={`${
+                        active === section ? "text-blue-600" : "text-black"
+                      }`}
                     >
                       {section.charAt(0).toUpperCase() + section.slice(1)}
                     </button>
                   </motion.li>
                 ))}
 
-                {/* Mobile Resume Button */}
                 <motion.li custom={navLinks.length} variants={linkVariants}>
                   <a
                     href="https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784276/manoj-bhandarkar-resume_qsu9xj.pdf"
-                    download
                     className="flex items-center gap-2 text-sm bg-black text-white px-6 py-3 rounded-xl w-fit"
                   >
                     Resume <TbDownload />
@@ -203,4 +203,3 @@ export default function Navbar() {
     </motion.nav>
   );
 }
-

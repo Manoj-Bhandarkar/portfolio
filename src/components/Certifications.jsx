@@ -7,7 +7,7 @@ const certs = [
         id: 1,
         title: "Python Essentials 1",
         issuer: "Cisco Networking Academy",
-        image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_700/v1776784278/PythonEs1_movcce.webp", // Replace with your actual path
+        image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_auto/v1776784278/PythonEs1_movcce.webp", // Replace with your actual path
         viewLink: "https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784284/PythonEss1_dvwvm5.pdf",
         verifylink: "https://www.credly.com/badges/349eabc9-fe8c-47ef-951f-481f133396b0/public_url"
     },
@@ -15,7 +15,7 @@ const certs = [
         id: 2,
         title: "Python Essentials 2",
         issuer: "Cisco Networking Academy",
-        image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_700/v1776784279/PythonEs2_lgdgma.webp", // Replace with your actual path
+        image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_auto/v1776784279/PythonEs2_lgdgma.webp", // Replace with your actual path
         viewLink: "https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784285/PythonEss2_wa7hc5.pdf",
         verifylink: "https://www.credly.com/badges/d0e58590-3198-4564-97f8-bce5bb8e4c8a/public_url"
     },
@@ -23,7 +23,7 @@ const certs = [
         id: 3,
         title: "FastAPI",
         issuer: "Udemy",
-        image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_700/v1776784277/FastAPI-Cert_ieopl9.webp", // Replace with your actual path
+        image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_auto/v1776784277/FastAPI-Cert_ieopl9.webp", // Replace with your actual path
         viewLink: "https://www.udemy.com/certificate/UC-7eabe03f-d89b-410b-830c-1c89017128aa/"
     }
 ];
@@ -49,15 +49,16 @@ export default function Certifications() {
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         whileHover={{ y: -8, scale: 1.02 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        layout={false}
                         viewport={{ once: true }}
+                        style={{ willChange: "transform, opacity" }}// Optimize for transform animations
                     >
                         {/* Image Container */}
                         <div className="relative w-full aspect-video overflow-hidden bg-gray-50 border-b border-gray-100">
                             <img
                                 src={cert.image}
                                 alt={cert.title}
-                                className="w-full object-contain p-4 transition-transform duration-700 group-hover:scale-110"
+                                className="w-full object-contain p-4 aspect-[7/5] transition-transform duration-700 group-hover:scale-110"
                             />
                             {/* Hover Overlay */}
                             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 p-4">

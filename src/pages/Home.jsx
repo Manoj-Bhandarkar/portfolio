@@ -121,9 +121,19 @@ export default function Home() {
             ease: "easeInOut"
           }}
         >
-          <img className="h-full w-full object-cover"
-            src="https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784280/hero-vector_mrli7e.webp" alt="Hero Vector" fetchPriority="high" loading="eager"
-            sizes="(max-width: 768px) 100vw, 50vw" objectFit="cover"
+          <link
+            rel="preload"
+            as="image"
+            href="https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto/hero-vector_mrli7e.webp"
+          />
+          <img
+            src="https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto/hero-vector_mrli7e.webp"
+            width="800"
+            height="600"
+            class="h-full w-full object-cover"
+            fetchpriority="high"
+            loading="eager"
+            alt="Hero Vector"
           />
         </motion.div>
       </div>
