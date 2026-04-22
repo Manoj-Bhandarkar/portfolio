@@ -35,7 +35,7 @@ This is a personal portfolio website built using Vite+React, Tailwind CSS, and F
    The app will be available at `http://localhost:3000/`.
 
 ## Demo
-Check out the live demo of the portfolio website: [Live Demo](https://themanoj.netlify.app/)
+Check out the live demo of the portfolio website: [Live Demo](https://manojbhandarkar.cloud/)
 
 ## Deployment
 To deploy the portfolio website, you can use platforms like:
