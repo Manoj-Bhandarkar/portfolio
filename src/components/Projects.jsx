@@ -54,7 +54,7 @@ export default function Projects() {
                 {String(project.id).padStart(2, "0")}
               </h2>
               <p className="font-bold text-white text-xl sm:text-2xl lg:text-3xl">{project.title}</p>
-              <p className="font-light text-sm/6 lg:text-base text-[#71717A]">
+              <p className="font-light text-sm/6 lg:text-base text-zinc-300">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2 mt-3">

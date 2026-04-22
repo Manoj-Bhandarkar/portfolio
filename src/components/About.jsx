@@ -37,7 +37,7 @@ export default function About() {
         <p className="text-zinc-300 text-sm sm:text-base mt-4 leading-6">
           I enjoy designing clean backend architectures, optimizing performance, and building systems that are reliable and scalable.
         </p>
-        <p className="text-zinc-300 text-sm sm:text-base mt-4 leading-6">
+        <p className="text-zinc-600 text-sm sm:text-base mt-4 leading-6">
           I am actively seeking opportunities as a Python Backend Developer to contribute to real-world applications and grow in modern backend technologies.
         </p>
         <div className="flex flex-wrap gap-3 mt-6">
