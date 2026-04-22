@@ -79,7 +79,7 @@ export default function Skills() {
           <h2 className="text-3xl lg:text-5xl mb-3">
             <span className="font-extrabold">Tech</span> Stack
           </h2>
-          <p className="text-gray-500 text-sm lg:text-lg">
+          <p className="text-gray-600 text-sm lg:text-lg">
             Technologies I use to build scalable web applications
           </p>
         </motion.div>
@@ -98,7 +98,7 @@ export default function Skills() {
             >
               {/* Compact Category Title */}
               <div className="flex items-center gap-4 mb-6">
-                <h3 className="text-sm font-black uppercase tracking-widest text-gray-400">
+                <h3 className="text-sm font-black uppercase tracking-widest text-gray-600">
                   {group.title}
                 </h3>
                 <div className="h-[1px] flex-1 bg-gray-200"></div>

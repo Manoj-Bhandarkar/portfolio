@@ -7,10 +7,10 @@ import { TypeAnimation } from "react-type-animation";
 
 export default function Home() {
   const socialLinks = [
-    { Icon: BsGithub, href: "https://github.com/Manoj-Bhandarkar" },
-    { Icon: IoLogoLinkedin, href: "https://www.linkedin.com/in/manoj-bhandarkar-dev/" },
-    { Icon: BiLogoGmail, href: "mailto:developer.manojbhandarkar@gmail.com" },
-    { Icon: IoLogoTwitter, href: "https://twitter.com" },
+    { Icon: BsGithub, href: "https://github.com/Manoj-Bhandarkar", label: "GitHub profile" },
+    { Icon: IoLogoLinkedin, href: "https://www.linkedin.com/in/manoj-bhandarkar-dev/", label: "LinkedIn profile" },
+    { Icon: BiLogoGmail, href: "mailto:developer.manojbhandarkar@gmail.com", label: "Send email" },
+    { Icon: IoLogoTwitter, href: "https://twitter.com", label: "Twitter profile" },
   ];
 
   return (
@@ -97,12 +97,13 @@ export default function Home() {
                 href={social.href} // Dynamic link here
                 target={social.href.startsWith('mailto:') ? '_self' : '_blank'}   // Opens in a new tab
                 rel="noreferrer"   // Security best practice
+                aria-label={social.label}
                 className="bg-white p-2 sm:p-2.5 lg:p-3 rounded border-2 border-zinc-200 text-black"
                 whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
                 whileTap={{ scale: 0.9 }}
               >
                 <social.Icon className="w-6 h-6 lg:w-5 lg:h-5" />
-
+                <span className="sr-only">{social.label}</span>
               </motion.a>
             ))}
 
@@ -120,7 +121,7 @@ export default function Home() {
             ease: "easeInOut"
           }}
         >
-       
+
           <img
             src="https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto/hero-vector_mrli7e.webp"
             width="800"

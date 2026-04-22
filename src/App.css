@@ -1,13 +1,23 @@
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* This is the same as scroll-pt-20 */
+  scroll-padding-top: 100px;
+  /* This is the same as scroll-pt-20 */
 }
+
 body {
   font-family: 'Sora', system-ui, -apple-system, sans-serif;
 }
+
 section {
-  padding-top: 60px; /* Gives the content some breathing room */
+  padding-top: 60px;
+  /* Gives the content some breathing room */
   padding-bottom: 60px;
+}
+
+button:focus,
+a:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 /* Scrollbar Styling */

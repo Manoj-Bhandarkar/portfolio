@@ -96,7 +96,7 @@ export default function Navbar() {
         top-0 left-0 w-full px-4 sm:px-4 lg:px-18 py-2`}
     >
       <div className={`container mx-auto flex items-center justify-end ${hasShadow ? "gap-4" : "lg:justify-between gap-4"}`}>
-        
+
         {/* Logo */}
         {!hasShadow && (
           <motion.img
@@ -115,9 +115,8 @@ export default function Navbar() {
             <li key={section}>
               <button
                 onClick={() => scrollToSection(section)}
-                className={`transition-colors ${
-                  active === section ? "text-blue-600" : "text-black hover:text-blue-500"
-                }`}
+                className={`transition-colors ${active === section ? "text-blue-600" : "text-black hover:text-blue-500"
+                  }`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
@@ -145,6 +144,7 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <motion.button
           className="lg:hidden text-2xl z-[60]"
+          aria-label={isOpen ? "Close menu" : "Open menu"}
           onClick={() => setIsOpen(!isOpen)}
           whileTap={{ scale: 0.9 }}
         >
@@ -178,9 +178,8 @@ export default function Navbar() {
                   <motion.li key={section} custom={i} variants={linkVariants}>
                     <button
                       onClick={() => scrollToSection(section)}
-                      className={`${
-                        active === section ? "text-blue-600" : "text-black"
-                      }`}
+                      className={`${active === section ? "text-blue-600" : "text-black"
+                        }`}
                     >
                       {section.charAt(0).toUpperCase() + section.slice(1)}
                     </button>

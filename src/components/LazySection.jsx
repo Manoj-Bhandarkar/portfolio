@@ -24,7 +24,7 @@ export default function LazySection({ children }) {
 
   return (
     <div ref={ref}>
-      {visible ? children : <div className="py-20 text-center text-gray-400">Loading...</div>}
+      {visible ? children : <div className="py-20 text-center text-gray-600">Loading...</div>}
     </div>
   );
 }

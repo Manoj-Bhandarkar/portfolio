@@ -35,7 +35,7 @@ export default function Certifications() {
                 <h2 className="text-2xl lg:text-4xl font-bold">
                     Certifications
                 </h2>
-                <p className="text-gray-500 text-sm lg:text-base mt-3">
+                <p className="text-gray-600 text-sm lg:text-base mt-3">
                     Professional certifications validating my knowledge in
                     Python programming, backend development and API design.
                 </p>
@@ -93,10 +93,10 @@ export default function Certifications() {
 
                         {/* Text Content - PADDING ADDED HERE INSTEAD */}
                         <div className="p-6">
-                            <h3 className="text-xl font-bold text-gray-900 leading-tight">
+                            <h3 className="text-xl font-bold text-gray-600 leading-tight">
                                 {cert.title}
                             </h3>
-                            <p className="text-gray-500 text-sm font-medium mt-1">
+                            <p className="text-gray-600 text-sm font-medium mt-1">
                                 {cert.issuer}
                             </p>
                         </div>

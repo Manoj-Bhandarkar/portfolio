@@ -14,11 +14,11 @@ export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-  const socialLinks = [
-    { Icon: BsGithub, href: "https://github.com/Manoj-Bhandarkar" },
-    { Icon: IoLogoLinkedin, href: "https://www.linkedin.com/in/manoj-bhandarkar-dev/" },
-    { Icon: BiLogoGmail, href: "mailto:developer.manojbhandarkar@gmail.com" },
-    { Icon: IoLogoTwitter, href: "https://twitter.com" },
+ const socialLinks = [
+    { Icon: BsGithub, href: "https://github.com/Manoj-Bhandarkar", label: "GitHub profile" },
+    { Icon: IoLogoLinkedin, href: "https://www.linkedin.com/in/manoj-bhandarkar-dev/", label: "LinkedIn profile" },
+    { Icon: BiLogoGmail, href: "mailto:developer.manojbhandarkar@gmail.com", label: "Send email" },
+    { Icon: IoLogoTwitter, href: "https://twitter.com", label: "Twitter profile" },
   ];
 
   const handleSubmit = (e) => {
@@ -114,10 +114,12 @@ export default function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={social.label}
                     className="bg-white p-2 rounded border border-zinc-200 text-black hover:border-black transition-colors"
                     whileHover={{ y: -3, backgroundColor: "#000", color: "#fff" }}
                   >
                     <social.Icon className="w-5 h-5" />
+                    <span className="sr-only">{social.label}</span>
                   </motion.a>
                 ))}
               </div>
@@ -142,10 +144,10 @@ export default function Contact() {
             </span>
             Open to Backend / Full-Stack opportunities
           </p>
-          <p className="text-zinc-500 text-sm mt-2">
+          <p className="text-zinc-300 text-sm mt-2">
             📍 Chhatrapati Sambhaji Nagar, Maharashtra, India
           </p>
-          <p className='text-zinc-500 text-sm lg:text-base mt-6 leading-relaxed'>
+          <p className='text-zinc-300 text-sm lg:text-base mt-6 leading-relaxed'>
             I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences.
           </p>
 

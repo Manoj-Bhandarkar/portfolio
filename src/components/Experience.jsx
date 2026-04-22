@@ -52,7 +52,7 @@ export default function Experience() {
                                     <h2 className="font-semibold text-white text-lg lg:text-xl">
                                         {exp.role}
                                     </h2>
-                                    <p className="text-zinc-400 text-sm">
+                                    <p className="text-zinc-300 text-sm">
                                         {exp.company}
                                     </p>
                                 </div>
