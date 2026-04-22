@@ -128,7 +128,7 @@ export default function Navbar() {
         {!hasShadow && (
           <div className="hidden lg:flex items-center gap-4">
             <motion.a
-              href="https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776859020/Manoj_Bhandarkar_Resume_cetbvr.pdf"
+              href="https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776880059/Manoj_Bhandarkar_Resume_z8vmr8.pdf"
               target="_blank"
               className="relative inline-block px-4 py-2 font-medium group"
             >

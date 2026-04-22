@@ -9,7 +9,8 @@ const projects = [
     description: "A dynamic blogging platform built with Django. Features include user authentication (login/signup), role-based access control, a searchable post database, and a custom administrative dashboard for streamlined content management.",
     tech: ["Django", "Django ORM", "MVT", "SQLite"],
     image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_auto/v1776784277/project1_ixv4hb.webp",
-    link: "https://manojbhandarkar.pythonanywhere.com/",
+    frontend: "https://blog.manojbhandarkar.cloud/",
+    backend: "https://blog.api.manojbhandarkar.cloud/",
     github: "https://github.com/Manoj-Bhandarkar/django-blog"
 
   },
@@ -19,7 +20,8 @@ const projects = [
     description: "A full-stack e-commerce platform built with FastAPI and Next.js, featuring secure authentication, product management, cart and order workflows, and integrated payment processing. Designed with a production-oriented architecture including background task processing, containerization, and cloud deployment. Key features include JWT-based authentication, product search & pagination, cart management, order checkout, payment integration, and email verification.",
     tech: ["FastAPI", "Next.js", "PostgreSQL", "Docker", "AWS", "Celery", "Redis"],
     image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_auto/v1776784275/project2_vzhh0n.png",
-    link: "#",
+    backend: "https://api.manojbhandarkar.cloud/",
+    frontend: "https://store.manojbhandarkar.cloud/",
     github: "https://github.com/Manoj-Bhandarkar/fastapi-production-ecommerce"
   }
 ];
@@ -76,15 +78,24 @@ export default function Projects() {
                 ))}
               </div>
               <div className="flex gap-4 mt-4">
+
                 <a
-                  href={project.link}
+                  href={project.frontend}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white text-black px-4 py-2 rounded text-sm font-semibold"
                 >
                   Live Demo
                 </a>
-
+                <a
+                  href={project.backend}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white border border-gray-300 text-black px-4 py-2 rounded text-sm font-semibold hover:bg-gray-100 transition"
+                  aria-label="View backend API"
+                >
+                  API
+                </a>
                 <a
                   href={project.github}
                   target="_blank"
