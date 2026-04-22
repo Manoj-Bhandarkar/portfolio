@@ -37,13 +37,25 @@
 
   <!-- Optimize Fonts -->
   <!-- Faster connection -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="/fonts/sora.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/src/index.css" as="style" onload="this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="/src/index.css">
+  </noscript>
 
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet">
+  <!-- load Hero image -->
+  <link rel="preload" as="image"
+    href="https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto/hero-vector_mrli7e.webp"
+    fetchpriority="high" />
 
-  <!-- <link rel="preload" href="/assets/index-CwrBg2cF.js" as="script">
-  <link rel="preload" href="/assets/index-pcrr4Yin.css" as="style"> -->
+    <!-- load cloudinary -->
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+
+    <!-- css -->
+  <link rel="preload" href="/src/index.css" as="style" onload="this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="/src/index.css">
+  </noscript>
 
   <script type="application/ld+json">
 {

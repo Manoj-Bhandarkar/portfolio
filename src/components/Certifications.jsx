@@ -7,7 +7,7 @@ const certs = [
         id: 1,
         title: "Python Essentials 1",
         issuer: "Cisco Networking Academy",
-        image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_auto/v1776784278/PythonEs1_movcce.webp", // Replace with your actual path
+        image: "v1776784278/PythonEs1_movcce.webp", // Replace with your actual path
         viewLink: "https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784284/PythonEss1_dvwvm5.pdf",
         verifylink: "https://www.credly.com/badges/349eabc9-fe8c-47ef-951f-481f133396b0/public_url"
     },
@@ -15,7 +15,7 @@ const certs = [
         id: 2,
         title: "Python Essentials 2",
         issuer: "Cisco Networking Academy",
-        image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_auto/v1776784279/PythonEs2_lgdgma.webp", // Replace with your actual path
+        image: "v1776784279/PythonEs2_lgdgma.webp", // Replace with your actual path
         viewLink: "https://res.cloudinary.com/dpbjeqf4c/image/upload/v1776784285/PythonEss2_wa7hc5.pdf",
         verifylink: "https://www.credly.com/badges/d0e58590-3198-4564-97f8-bce5bb8e4c8a/public_url"
     },
@@ -23,7 +23,7 @@ const certs = [
         id: 3,
         title: "FastAPI",
         issuer: "Udemy",
-        image: "https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto,w_auto/v1776784277/FastAPI-Cert_ieopl9.webp", // Replace with your actual path
+        image: "v1776784277/FastAPI-Cert_ieopl9.webp", // Replace with your actual path
         viewLink: "https://www.udemy.com/certificate/UC-7eabe03f-d89b-410b-830c-1c89017128aa/"
     }
 ];
@@ -46,8 +46,8 @@ export default function Certifications() {
                         key={cert.id}
                         className="group overflow-hidden border border-gray-200 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 bg-white flex flex-col"
                         // Slide up animation matching your projects
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1}}
                         whileHover={{ y: -8, scale: 1.02 }}
                         layout={false}
                         viewport={{ once: true }}
@@ -56,8 +56,16 @@ export default function Certifications() {
                         {/* Image Container */}
                         <div className="relative w-full aspect-video overflow-hidden bg-gray-50 border-b border-gray-100">
                             <img
-                                src={cert.image}
+                                src={`https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto:low,w_600/${cert.image}`}
+                                srcSet={`
+                                    https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto:low,w_300/${cert.image} 300w,
+                                    https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto:low,w_600/${cert.image} 600w,
+                                    https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto:low,w_800/${cert.image} 800w
+  `                             }
+                                sizes="(max-width: 768px) 100vw, 33vw"
                                 alt={cert.title}
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full object-contain p-4 aspect-[7/5] transition-transform duration-700 group-hover:scale-110"
                             />
                             {/* Hover Overlay */}

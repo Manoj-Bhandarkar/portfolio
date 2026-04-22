@@ -17,7 +17,7 @@ export default function Home() {
     <div className="min-h-[80vh] flex items-center mt-10 lg:mt-4" id="home">
       <div className="flex justify-between py-10 sm:py-10 items-center min-h-[420px] px-5 lg:px-28 lg:flex-row flex-col-reverse w-full gap-8 lg:gap-12">
         <motion.div
-          className="lg:w-[55%] flex flex-col justify-center"
+          className="lg:w-[55%] flex flex-col justify-center min-h-[300px]"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
@@ -25,18 +25,17 @@ export default function Home() {
 
           <motion.div
             className="text-2xl sm:text-3xl lg:text-5xl flex flex-col gap-2 lg:gap-5 leading-tight"
-            initial="hidden"
+            initial="false"
             animate="visible"
             variants={{
-              hidden: { opacity: 0, y: 20 },
+              hidden: { opacity: 0 },
               visible: {
                 opacity: 1,
-                y: 0,
                 transition: { staggerChildren: 0.2, ease: "easeInOut" },
               },
             }}
           >
-            <motion.h2 variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}>
+            <motion.h2 variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
               Hello, I'm {" "}
               {/* <span className="font-extrabold">Manoj</span>{" "} */}
               <span
@@ -46,7 +45,7 @@ export default function Home() {
                 Manoj Bhandarkar
               </span>
             </motion.h2>
-            <motion.h2 variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}>
+            <motion.h2 variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
               <TypeAnimation
                 sequence={[
                   'Backend Engineer',
@@ -77,8 +76,8 @@ export default function Home() {
 
           <motion.p
             className="text-[#71717A] text-sm lg:text-base mt-5 max-w-2xl"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
           >
 
@@ -88,8 +87,8 @@ export default function Home() {
 
           <motion.div
             className="flex items-center gap-x-5 mt-10 lg:mt-14"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 1 }}
           >
             {socialLinks.map((social, index) => (
@@ -113,19 +112,15 @@ export default function Home() {
 
         <motion.div
           className="lg:w-[40%] w-[85%] sm:w-[70%] max-w-[420px]"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1, y: [0, -15, 0] }}
+          initial={false}
+          animate={{ y: [0, -15, 0] }}
           transition={{
             duration: 6,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         >
-          <link
-            rel="preload"
-            as="image"
-            href="https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto/hero-vector_mrli7e.webp"
-          />
+       
           <img
             src="https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto/hero-vector_mrli7e.webp"
             width="800"
@@ -133,6 +128,7 @@ export default function Home() {
             class="h-full w-full object-cover"
             fetchpriority="high"
             loading="eager"
+            decoding="async"
             alt="Hero Vector"
           />
         </motion.div>

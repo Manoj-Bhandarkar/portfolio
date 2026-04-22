@@ -7,6 +7,13 @@ export default defineConfig({
     react(),
   ],
   build: {
-    assetsInlineLimit: 4096, // Inlines files smaller than 4kb
-  }
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom"],
+          motion: ["framer-motion"],
+        },
+      },
+    },
+  },
 })

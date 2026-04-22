@@ -71,7 +71,7 @@ export default function Skills() {
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
           viewport={{ once: true }}
           className="text-center mb-16"
@@ -90,7 +90,7 @@ export default function Skills() {
             <motion.div
               key={gIndex}
               initial={{ opacity: 0, y: -10 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1}}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               // Added border, padding, and rounded corners to each section

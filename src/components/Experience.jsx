@@ -23,7 +23,7 @@ export default function Experience() {
                 <motion.h2
                     className="text-2xl lg:text-4xl text-center text-white"
                     initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true, amount: 0.5 }}
                 >

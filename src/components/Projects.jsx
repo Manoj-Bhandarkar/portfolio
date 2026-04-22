@@ -37,7 +37,7 @@ export default function Projects() {
             key={project.id}
             className={`flex items-center flex-col gap-6 ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ type: "spring", stiffness: 80, damping: 10, delay: index * 0.2 }}
             viewport={{ once: true }}
           >
