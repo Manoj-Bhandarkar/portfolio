@@ -144,10 +144,10 @@ export default function Contact() {
             </span>
             Open to Python Backend Developer / Full-Stack opportunities
           </p>
-          <p className="text-zinc-300 text-sm mt-2">
+          <p className="text-zinc-400 text-sm mt-2">
             📍 Chhatrapati Sambhaji Nagar, Maharashtra, India
           </p>
-          <p className='text-zinc-300 text-sm lg:text-base mt-6 leading-relaxed'>
+          <p className='text-zinc-400 text-sm lg:text-base mt-6 leading-relaxed'>
             I seek to push the limits of creativity to create high-engaging, user-friendly, and memorable interactive experiences.
           </p>
 

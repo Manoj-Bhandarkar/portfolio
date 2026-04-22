@@ -75,7 +75,7 @@ export default function Home() {
           </motion.div>
 
           <motion.p
-            className="text-zinc-400 text-sm lg:text-base mt-5 max-w-2xl"
+            className="text-zinc-500 text-sm lg:text-base mt-5 max-w-2xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
@@ -112,21 +112,24 @@ export default function Home() {
         </motion.div>
 
         <motion.div
+          key="floating-image" // 🔥 forces consistent animation
           className="lg:w-[40%] w-[85%] sm:w-[70%] max-w-[420px]"
-          initial={false}
-          animate={{ y: [0, -15, 0] }}
+          initial={{ y: 0 }}
+          animate={{ y: [-8, 8] }}
           transition={{
-            duration: 6,
+            duration: 4,
             repeat: Infinity,
+            repeatType: "mirror", // 🔥 smoother + more reliable than array
             ease: "easeInOut"
           }}
+          style={{ willChange: "transform" }}
         >
 
           <img
             src="https://res.cloudinary.com/dpbjeqf4c/image/upload/f_auto,q_auto/hero-vector_mrli7e.webp"
             width="800"
             height="600"
-            class="h-full w-full object-cover"
+            className="h-full w-full object-cover"
             fetchpriority="high"
             loading="eager"
             decoding="async"

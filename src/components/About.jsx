@@ -25,26 +25,26 @@ export default function About() {
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center lg:text-left">
           About <span className="text-black">Me</span>
         </h2>
-        <p className="text-zinc-300 text-sm mt-2 text-center lg:text-left">
+        <p className="text-zinc-400 text-sm mt-2 text-center lg:text-left">
           Backend Developer | FastAPI | Django | AWS | PostgreSQL | Docker
         </p>
-        <p className="text-zinc-300 text-sm sm:text-base mt-4 lg:mt-8 leading-6">
+        <p className="text-zinc-400 text-sm sm:text-base mt-4 lg:mt-8 leading-6">
           I am a backend-focused developer specializing in Python, FastAPI, and Django, with hands-on experience building scalable APIs and production-ready web applications.
         </p>
-        <p className="text-zinc-300 text-sm sm:text-base mt-4 lg:mt-8 leading-6">
+        <p className="text-zinc-400 text-sm sm:text-base mt-4 lg:mt-8 leading-6">
           I have worked in an enterprise environment as a Technical Consultant, where I collaborated with business teams on ERP systems and database-driven solutions. This experience helped me understand real-world workflows and how backend systems support business operations.
         </p>
-        <p className="text-zinc-300 text-sm sm:text-base mt-4 leading-6">
+        <p className="text-zinc-400 text-sm sm:text-base mt-4 leading-6">
           I enjoy designing clean backend architectures, optimizing performance, and building systems that are reliable and scalable.
         </p>
-        <p className="text-zinc-600 text-sm sm:text-base mt-4 leading-6">
+        <p className="text-zinc-400 text-sm sm:text-base mt-4 leading-6">
           I am actively seeking opportunities as a Python Backend Developer to contribute to real-world applications and grow in modern backend technologies.
         </p>
         <div className="flex flex-wrap gap-3 mt-6">
           {["Python", "FastAPI", "Django", "AWS", "React", "PostgreSQL", "Docker"].map((tech) => (
             <span
               key={tech}
-              className="text-xs text-zinc-300 px-3 py-1 rounded-full font-medium"
+              className="text-xs text-zinc-400 px-3 py-1 rounded-full font-medium"
             >
               {tech}
             </span>
