@@ -72,10 +72,18 @@ export default function Skills() {
       <div className="px-4 sm:px-6 lg:px-28">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: { opacity: 0, y: 40 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.5 }
+            }
+          }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          viewport={{ once: true }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl lg:text-5xl mb-3">
@@ -87,7 +95,20 @@ export default function Skills() {
         </motion.div>
 
         {/* Vertical Groups Container */}
-        <div className="flex flex-col gap-0">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.15
+              }
+            }
+          }}
+          className="flex flex-col gap-6"
+        >
           {skillGroups.map((group, gIndex) => (
             <motion.div
               key={gIndex}
@@ -95,6 +116,14 @@ export default function Skills() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.5, ease: "easeOut" }
+                }
+              }}
               // Added border, padding, and rounded corners to each section
               className="border border-gray-200 rounded-xl p-4 sm:p-6 bg-white shadow-sm"
             >
@@ -107,43 +136,70 @@ export default function Skills() {
               </div>
 
               {/* Tight Grid Layout */}
-              <div className="flex flex-wrap gap-1 sm:gap-2 justify-center lg:justify-start">
-                {group.skills.map((skill) => (
-                  <motion.div
-                    key={skill.id}
-                    onMouseEnter={() => setActiveSkill(skill.name)}
-                    onMouseLeave={() => setActiveSkill(null)}
+              <motion.div
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: { staggerChildren: 0.08 }
+                  }
+                }}
+                className="flex flex-wrap gap-3"
+              >  {group.skills.map((skill) => (
+                <motion.div
+                  key={skill.id}
+                  onMouseEnter={() => setActiveSkill(skill.name)}
+                  onMouseLeave={() => setActiveSkill(null)}
 
-                    whileHover={{
-                      y: -8,
-                      scale: 1.08,
-                      boxShadow: `0px 8px 20px ${skill.color}33`, // Adds a subtle glow using skill color (33 is 20% opacity)
-                      borderColor: skill.color, // Border changes to skill color
-                    }}
-                    className="bg-white border hover:bg-black border-gray-200 rounded-lg p-3 h-20 w-20 sm:h-24 sm:w-24 lg:h-32 lg:w-32 flex flex-col items-center justify-center gap-2 shadow-sm  transition-all cursor-pointer"
+                  // 🔥 ENTRY ANIMATION (NEW)
+                  variants={{
+                    hidden: { opacity: 0, y: 30, scale: 0.9 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                      transition: { duration: 0.4, ease: "easeOut" }
+                    }
+                  }}
+
+                  // 🔥 HOVER ANIMATION (YOURS, slightly tuned)
+                  whileHover={{
+                    y: -6,
+                    scale: 1.08,
+                    boxShadow: `0px 8px 20px ${skill.color}33`,
+                    borderColor: skill.color,
+                  }}
+
+                  className="bg-white border hover:bg-black border-gray-200 rounded-lg 
+               p-3 h-20 w-20 sm:h-24 sm:w-24 lg:h-32 lg:w-32 
+               flex flex-col items-center justify-center gap-2 
+               shadow-sm transition-all cursor-pointer"
+                >
+                  <motion.div
+                    className="text-2xl sm:text-3xl lg:text-4xl"
+                    style={{ color: skill.color }}
+                    whileHover={{ scale: 1.25, rotate: 5 }}
+                    transition={{ duration: 0.2 }}
                   >
-                    <motion.div
-                      className="text-2xl sm:text-3xl lg:text-4xl transition-colors duration-300"
-                      style={{ color: skill.color }}
-                      whileHover={{ scale: 1.3, rotate: 5 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      {skill.icon}
-                    </motion.div>
-                    <motion.p
-                      // Animate text color based on hover state
-                      animate={{ color: activeSkill === skill.name ? skill.color : "#374151" }}
-                      className="text-[10px] lg:text-xs font-bold text-center"
-                    >
-                      {skill.name}
-                    </motion.p>
+                    {skill.icon}
                   </motion.div>
-                ))}
-              </div>
+                  <motion.p
+                    className="text-[10px] lg:text-xs font-bold text-center"
+                    initial={{ color: "#374151" }}
+                    whileHover={{
+                      y: -6,
+                      scale: 1.08,
+                      rotate: 1
+                    }}
+                  >
+                    {skill.name}
+                  </motion.p>
+                </motion.div>
+              ))}
+              </motion.div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </div >
   );
 }

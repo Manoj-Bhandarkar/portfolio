@@ -46,11 +46,19 @@ export default function Certifications() {
                         key={cert.id}
                         className="group overflow-hidden border border-gray-200 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 bg-white flex flex-col"
                         // Slide up animation matching your projects
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1}}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px"}}
+                        variants={{
+                            hidden: { opacity: 0, y: 40 },
+                            visible: {
+                                opacity: 1,
+                                y: 0,
+                                transition: { duration: 0.5 }
+                            }
+                        }}
                         whileHover={{ y: -8, scale: 1.02 }}
                         layout={false}
-                        viewport={{ once: true }}
                         style={{ willChange: "transform, opacity" }}// Optimize for transform animations
                     >
                         {/* Image Container */}

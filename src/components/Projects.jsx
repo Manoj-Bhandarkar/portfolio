@@ -36,10 +36,18 @@ export default function Projects() {
           <motion.div
             key={project.id}
             className={`flex items-center flex-col gap-6 ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1 }}
+            initial="hidden"
+            whileInView="visible"
             transition={{ type: "spring", stiffness: 80, damping: 10, delay: index * 0.2 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.5 }
+              }
+            }}
           >
             <div className="group lg:w-[500px] w-full max-w-md rounded-2xl overflow-hidden border border-zinc-800">
               <img
