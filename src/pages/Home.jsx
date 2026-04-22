@@ -48,11 +48,11 @@ export default function Home() {
             <motion.h2 variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
               <TypeAnimation
                 sequence={[
-                  'Backend Engineer',
-                  1500,
-                  'Django Developer',
+                  'Python Developer',
                   1500,
                   'FastAPI Developer',
+                  1500,
+                  'Django Developer',
                   1500,
                   'Fullstack Developer',
                   1500,
@@ -75,14 +75,14 @@ export default function Home() {
           </motion.div>
 
           <motion.p
-            className="text-[#71717A] text-sm lg:text-base mt-5 max-w-2xl"
+            className="text-zinc-400 text-sm lg:text-base mt-5 max-w-2xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
           >
 
             I build scalable backend systems and modern web applications using
-            <strong> Python, FastAPI,  Django, AWS, PostgreSQL and React</strong>.
+            <strong> Python, FastAPI,  Django, AWS, PostgreSQL and Docker </strong>.
             Focused on performance, clean architecture, and solving real-world problems.  </motion.p>
 
           <motion.div

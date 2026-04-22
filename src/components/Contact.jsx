@@ -142,7 +142,7 @@ export default function Contact() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
             </span>
-            Open to Backend / Full-Stack opportunities
+            Open to Python Backend Developer / Full-Stack opportunities
           </p>
           <p className="text-zinc-300 text-sm mt-2">
             📍 Chhatrapati Sambhaji Nagar, Maharashtra, India
