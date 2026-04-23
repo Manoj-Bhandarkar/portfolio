@@ -85,7 +85,7 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="bg-white text-black px-4 py-2 rounded text-sm font-semibold"
                 >
-                  Live Demo
+                  Live App <TbExternalLink className="inline-block ml-1" />
                 </a>
                 <a
                   href={project.backend}
@@ -94,7 +94,7 @@ export default function Projects() {
                   className="bg-white border border-gray-300 text-black px-4 py-2 rounded text-sm font-semibold hover:bg-gray-100 transition"
                   aria-label="View backend API"
                 >
-                  API
+                  API Docs (Swagger) <TbExternalLink className="inline-block ml-1" />
                 </a>
                 <a
                   href={project.github}
@@ -102,7 +102,7 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="bg-white text-black px-4 py-2 rounded text-sm font-semibold"
                 >
-                  GitHub
+                  Source Code <TbExternalLink className="inline-block ml-1" />
                 </a>
               </div>
             </div>
